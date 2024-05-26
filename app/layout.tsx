@@ -1,8 +1,22 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+import { IBM_Plex_Sans_KR, IBM_Plex_Sans, IBM_Plex_Sans_JP } from 'next/font/google';
+
+const ibmKr = IBM_Plex_Sans_KR({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+});
+
+const ibmEn = IBM_Plex_Sans({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+});
+
+const ibmJa = IBM_Plex_Sans_JP({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${ibmKr.className} ${ibmEn.className} ${ibmJa.className}`}>{children}</body>
     </html>
   );
 }

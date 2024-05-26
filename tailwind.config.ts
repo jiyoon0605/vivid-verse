@@ -3,7 +3,13 @@ import type {Config} from 'tailwindcss';
 const config: Config = {
     content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'ibm-kr': ['IBM Plex Sans KR', 'sans-serif'],
+                'ibm-en': ['IBM Plex Sans', 'sans-serif'],
+                'ibm-ja': ['IBM Plex Sans JP', 'sans-serif'],
+            },
+        },
         fontSize: {
             sm: [
                 '12px',
