@@ -70,16 +70,7 @@ module.exports = {
   plugins: [nextui({
     layout: {},
     themes: {
-      light: {
-        colors: {
-          primary: {
-            DEFAULT: '#71C4EF'
-          },
-          secondary: {
-            DEFAULT: '#D4EAF7'
-          }
-        }
-      },
+      light: {},
       dark: {}
     }
   })]
