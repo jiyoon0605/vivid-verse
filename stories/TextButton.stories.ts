@@ -27,3 +27,17 @@ export const Default: Story = {
     label: 'Button',
   },
 };
+
+export const Loading: Story = {
+  args: {
+    label: 'Button',
+    isLoading: true,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    label: 'Button',
+    isDisabled: true,
+  },
+}

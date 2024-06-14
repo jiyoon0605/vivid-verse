@@ -48,13 +48,22 @@ module.exports = {
               200: '#00668C',
               foreground: '#FFFEFB',
             },
+            background: {
+              DEFAULT: '#FFFEFB',
+              100: '#FFFEFB',
+              200: '#F5F4F1',
+              300: '#CCCBC8',
+              foreground: '#3B3C3D'
+            },
+            default: {
+              DEFAULT: '#FFFEFB',
+              100: '#FFFEFB',
+              200: '#F5F4F1',
+              300: '#CCCBC8',
+            },
             text: {
               100: '#1D1C1C',
               200: '#313D44',
-            },
-            background: {
-              DEFAULT: '#FFFEFB',
-              200: '#F5F4F1',
               300: '#CCCBC8',
             },
           },

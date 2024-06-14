@@ -27,3 +27,45 @@ export const Default: Story = {
     label: 'Button',
   },
 };
+
+export const Loading: Story = {
+  args: {
+    label: 'Button',
+    isLoading: true,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    label: 'Button',
+    isDisabled: true,
+  },
+}
+
+export const Solid: Story = {
+  args: {
+    label: 'Button',
+    variant: 'solid',
+  },
+}
+
+export const Bordered: Story = {
+  args: {
+    label: 'Button',
+    variant: 'bordered',
+  },
+}
+
+export const Ghost: Story = {
+  args: {
+    label: 'Button',
+    variant: 'ghost',
+  },
+}
+
+export const Shadow: Story = {
+  args: {
+    label: 'Button',
+    variant: 'shadow',
+  },
+}
