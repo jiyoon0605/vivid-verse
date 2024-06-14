@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: 'Vivid Verse',
-  description: '',
+  description: 'Convert Your Sentence into Sensory Delight',
   navItems: [
     {
       label: 'Home',
