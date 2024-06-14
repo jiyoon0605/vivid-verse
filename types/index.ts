@@ -9,7 +9,7 @@ export interface ButtonProps {
   isLoading?: boolean;
   isDisabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  size?: 'sm' | 'md' | 'lg';
   label: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
-  
 }

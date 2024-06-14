@@ -11,6 +11,10 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     label: { control: 'text' },
+    isLoading: { control: 'boolean' },
+    isDisabled: { control: 'boolean' },
+    size: { control: 'radio', options: ['sm', 'md', 'lg'] },
+    variant: { control: 'radio', options: ['solid', 'bordered', 'ghost', 'shadow'] },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof TextButton>;

@@ -16,92 +16,51 @@ module.exports = {
         en: ['var(--font-roboto-en)'],
       },
     },
-    colors: {
-      // 'primary': '#71C4EF',
-      // 'primary-200': '#D4EAF7',
-      // 'primary-300': '#3B3C3D',
-      // 'accent-100': '#D4EAF7',
-      // 'accent-200': '#00668C',
-      'text-100': '#1D1C1C',
-      'text-200': '#419acc',
-      // 'bg-100': '#FFFEFB',
-      // 'bg-200': '#F5F4F1',
-      // 'bg-300': '#CCCBC8',
-    },
   },
   darkMode: 'class',
-  plugins: [nextui({
-    layout: {
-      fontSize: {
-        sm: [
-          '12px',
-          {
-            lineHeight: '18px',
-            fontWeight: '400',
-          },
-        ],
-        md: [
-          '14px',
-          {
-            lineHeight: '21px',
-            fontWeight: '400',
-          },
-        ],
-        button: [
-          '14px',
-          {
-            lineHeight: '21px',
-            fontWeight: '700',
-          },
-        ],
-        lg: [
-          '16px',
-          {
-            lineHeight: '24px',
-            fontWeight: '400',
-          },
-        ],
-        xl: [
-          '32px',
-          {
-            lineHeight: '40px',
-            fontWeight: '700',
-          },
-        ],
-      },
-      radius: {
-        small: '2px',
-        medium: '8px',
-        large: '12px',
-      }
-    },
-    themes: {
-      light: {
-        colors: {
-          primary: {
-            DEFAULT: '#71C4EF',
-            100: '#D4EAF7',
-            200: '#3B3C3D',
-            foreground: '#FFFEFB',
-          },
-          secondary: {
-            DEFAULT: '#00668C',
-            100: '#D4EAF7',
-            200: '#00668C',
-            foreground: '#FFFEFB',
-          },
-          text: {
-            100: '#1D1C1C',
-            200: '#313D44',
-          },
-          background: {
-            DEFAULT: '#FFFEFB',
-            200: '#F5F4F1',
-            300: '#CCCBC8',
-          },
+  plugins: [
+    nextui({
+      layout: {
+        radius: {
+          small: '2px',
+          medium: '8px',
+          large: '12px',
+        },
+        fontSize: {
+          tiny: '9px',
+          small: '11px',
+          medium: '16px',
+          large: '24px',
         },
       },
-      dark: {},
-    },
-  })],
+      themes: {
+        light: {
+          colors: {
+            primary: {
+              DEFAULT: '#71C4EF',
+              100: '#D4EAF7',
+              200: '#3B3C3D',
+              foreground: '#FFFEFB',
+            },
+            secondary: {
+              DEFAULT: '#00668C',
+              100: '#D4EAF7',
+              200: '#00668C',
+              foreground: '#FFFEFB',
+            },
+            text: {
+              100: '#1D1C1C',
+              200: '#313D44',
+            },
+            background: {
+              DEFAULT: '#FFFEFB',
+              200: '#F5F4F1',
+              300: '#CCCBC8',
+            },
+          },
+        },
+        dark: {},
+      },
+    }),
+  ],
 };
