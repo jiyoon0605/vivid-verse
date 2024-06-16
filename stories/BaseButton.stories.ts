@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { fn } from '@storybook/test';
+
 import { BaseButton } from '@/components/common/button/BaseButton';
 
 const meta = {
@@ -33,39 +35,39 @@ export const Loading: Story = {
     label: 'Button',
     isLoading: true,
   },
-}
+};
 
 export const Disabled: Story = {
   args: {
     label: 'Button',
     isDisabled: true,
   },
-}
+};
 
 export const Solid: Story = {
   args: {
     label: 'Button',
     variant: 'solid',
   },
-}
+};
 
 export const Bordered: Story = {
   args: {
     label: 'Button',
     variant: 'bordered',
   },
-}
+};
 
 export const Ghost: Story = {
   args: {
     label: 'Button',
     variant: 'ghost',
   },
-}
+};
 
 export const Shadow: Story = {
   args: {
     label: 'Button',
     variant: 'shadow',
   },
-}
+};

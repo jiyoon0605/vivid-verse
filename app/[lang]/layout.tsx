@@ -1,6 +1,7 @@
+import React from 'react';
+
 import * as Font from '@/config/fonts';
 import { Locale } from '@/i18n-config';
-import React from 'react';
 
 export default function Layout({ params: { lang }, children }: { params: { lang: Locale }; children: React.ReactNode }) {
   const getFontByLang = () => {

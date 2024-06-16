@@ -1,6 +1,7 @@
 import { Button } from '@nextui-org/button';
-import { ButtonProps } from '@/types';
 import React from 'react';
+
+import { ButtonProps } from '@/types';
 
 interface TextButtonProps extends Omit<ButtonProps, 'variant'> {}
 
@@ -8,9 +9,9 @@ export const TextButton = ({ label, type = 'button', size = 'md', isLoading = fa
   return (
     <Button
       className={'bg-transparent text-text-100 hover:text-primary underline underline-offset-4'}
-      size={size}
-      isLoading={isLoading}
       isDisabled={isDisabled}
+      isLoading={isLoading}
+      size={size}
       type={type}
       onClick={onClick}
     >

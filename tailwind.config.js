@@ -53,7 +53,7 @@ module.exports = {
               100: '#FFFEFB',
               200: '#F5F4F1',
               300: '#CCCBC8',
-              foreground: '#3B3C3D'
+              foreground: '#3B3C3D',
             },
             default: {
               DEFAULT: '#FFFEFB',

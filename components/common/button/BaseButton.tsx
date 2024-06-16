@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@nextui-org/button';
+
 import { ButtonProps } from '@/types';
 
 export const BaseButton = ({
@@ -13,14 +14,14 @@ export const BaseButton = ({
 }: ButtonProps) => {
   return (
     <Button
-      color={'primary'}
       className={`font-bold`}
+      color={'primary'}
+      isDisabled={isDisabled}
+      isLoading={isLoading}
       radius="md"
       size={size}
-      variant={variant}
-      isLoading={isLoading}
-      isDisabled={isDisabled}
       type={type}
+      variant={variant}
       onClick={onClick}
     >
       {!isLoading && label}

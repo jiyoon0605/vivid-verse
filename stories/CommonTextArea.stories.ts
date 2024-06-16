@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { fn } from '@storybook/test';
-import { TextButton } from '@/components/common/button/TextButton';
+
 import CommonTextArea from '@/components/common/input/CommonTextArea';
 
 const meta = {
@@ -37,7 +38,10 @@ export const Default: Story = {
 
 export const Disabled: Story = {
   args: {
-    value: 'Text Area',
+    label: 'Common Text Area',
+    value: 'value',
+    placeholder: 'placeholder',
+    maxLength: 10,
     isDisabled: true,
   },
-}
+};
