@@ -22,7 +22,7 @@ export default function CommonTextArea({ onChange, ...props }: TextInputProps) {
                 [&>div[data-slot='input-wrapper']]:border-1
                 [&>div[data-slot='input-wrapper']]:border-default-300
                 [&>div[data-slot='input-wrapper']]:text-text-${props.isDisabled ? 200 : 100}
-              `}
+                `}
         isDisabled={props.isDisabled || props.isLoading}
         labelPlacement={'outside'}
         maxLength={props.maxLength}

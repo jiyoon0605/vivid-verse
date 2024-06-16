@@ -57,7 +57,7 @@ module.exports = {
             },
             default: {
               DEFAULT: '#FFFEFB',
-              100: '#FFFEFB',
+              100: '#F5F4F1',
               200: '#F5F4F1',
               300: '#CCCBC8',
             },
