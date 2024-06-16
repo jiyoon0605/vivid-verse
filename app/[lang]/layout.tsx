@@ -11,8 +11,8 @@ export default function Layout({ params: { lang }, children }: { params: { lang:
         return `${Font.fontNotoKr.className}`;
       case 'ja':
         return `${Font.fontNotoJa.className}`;
-      case 'cn':
-        return `${Font.fontNotoCn.className}`;
+      case 'zh':
+        return `${Font.fontNotoZh.className}`;
       default:
         return `${Font.fontRobotoEn.className}`;
     }

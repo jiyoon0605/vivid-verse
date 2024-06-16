@@ -12,10 +12,10 @@ export const fontNotoJa = Noto_Sans_JP({
   variable: '--font-noto-ja',
 });
 
-export const fontNotoCn = Noto_Sans_TC({
+export const fontNotoZh = Noto_Sans_TC({
   weight: ['100', '300', '400', '500', '700'],
   subsets: ['latin'],
-  variable: '--font-noto-cn',
+  variable: '--font-noto-zh',
 });
 export const fontRobotoEn = Roboto({
   weight: ['100', '300', '400', '500', '700'],

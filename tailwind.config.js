@@ -12,7 +12,7 @@ module.exports = {
       fontFamily: {
         kr: ['var(--font-noto-kr)'],
         ja: ['var(--font-noto-ja)'],
-        cn: ['var(--font-noto-cn)'],
+        zh: ['var(--font-noto-zh)'],
         en: ['var(--font-roboto-en)'],
       },
     },

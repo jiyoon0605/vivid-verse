@@ -1,5 +1,6 @@
 'use client';
 
+// @ts-ignore
 import { Select, SelectItem } from '@nextui-org/select';
 import React from 'react';
 import { useParams, usePathname, useRouter } from 'next/navigation';
@@ -16,7 +17,7 @@ const Languages = [
     label: 'Korean',
   },
   {
-    value: 'cn',
+    value: 'zh',
     label: 'Chinese',
   },
   {
@@ -30,7 +31,7 @@ export default function Header() {
   const params = useParams<{ lang: Locale }>();
   const pathname = usePathname();
 
-  const changeLanguage = (newLang: Locale) => {
+  const onChangeLanguage = (newLang: Locale) => {
     router.push(`/${newLang}${pathname.slice(3)}`);
   };
 
@@ -49,6 +50,7 @@ export default function Header() {
       <div>vivid verse</div>
       <Select
         isRequired
+        aria-label={'language selector'}
         className={`
         max-w-32
         border-none
@@ -57,8 +59,9 @@ export default function Header() {
       `}
         color={'default'}
         defaultSelectedKeys={[params.lang]}
+        disabledKeys={[params.lang]}
         size={'md'}
-        onChange={e => changeLanguage(e.target.value as Locale)}
+        onChange={e => onChangeLanguage(e.target.value as Locale)}
       >
         {Languages.map(({ value, label }) => (
           <SelectItem key={value} value={value}>
