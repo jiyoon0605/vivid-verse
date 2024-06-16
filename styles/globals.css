@@ -4,12 +4,12 @@
 
 @layer base {
   main {
-    padding: 0 15rem;
+    padding: 0 12rem;
   }
 
   @media (min-width: 768px) and (max-width: 1024px) { /* 태블릿 */
     main {
-      padding: 0 10rem;
+      padding: 0 8rem;
     }
   }
 

@@ -20,8 +20,9 @@ export default function NavTab({ i18n }: any) {
   };
 
   return (
-    <nav className={'my-4 mx-8 flex gap-2'}>
+    <nav className={'my-4 flex gap-2 max-md:justify-center'}>
       <Chip
+        size={'lg'}
         className={'cursor-pointer'}
         color={'secondary'}
         isDisabled={isDisabled(SENTENCE)}
@@ -30,6 +31,7 @@ export default function NavTab({ i18n }: any) {
         {i18n.nav.sentence}
       </Chip>
       <Chip
+        size={'lg'}
         className={'cursor-pointer'}
         color={'secondary'}
         isDisabled={isDisabled(PARAGRAPH)}

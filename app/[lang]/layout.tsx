@@ -30,8 +30,8 @@ export default async function Layout({
   return (
     <div className={getFontByLang()}>
       <Header />
-      <NavTab i18n={i18n} />
       <main>
+        <NavTab i18n={i18n} />
         {children}
       </main>
     </div>
