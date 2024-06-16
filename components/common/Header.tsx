@@ -40,6 +40,7 @@ export default function Header() {
       className={`
               w-dvw bg-background-100
               px-20
+              max-sm:px-3
               py-3
               shadow-md
               flex

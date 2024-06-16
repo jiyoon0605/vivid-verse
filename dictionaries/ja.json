@@ -1,3 +1,7 @@
 {
-  "test": "テスト"
+  "test": "テスト",
+  "nav": {
+    "sentence": "文章",
+    "paragraph": "段落"
+  }
 }

@@ -43,10 +43,10 @@ module.exports = {
               foreground: '#FFFEFB',
             },
             secondary: {
-              DEFAULT: '#00668C',
+              DEFAULT: '#CCCBC8',
               100: '#D4EAF7',
               200: '#00668C',
-              foreground: '#FFFEFB',
+              foreground: '#313D44',
             },
             background: {
               DEFAULT: '#FFFEFB',

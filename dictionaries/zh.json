@@ -1,3 +1,7 @@
 {
-  "test": "检验"
+  "test": "检验",
+  "nav": {
+    "sentence": "句子",
+    "paragraph": "段落"
+  }
 }
