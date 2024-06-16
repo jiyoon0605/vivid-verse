@@ -5,7 +5,6 @@ import React from 'react';
 import { Providers } from './providers';
 
 import { siteConfig } from '@/config/site';
-import Header from "@/components/common/Header";
 
 export const metadata: Metadata = {
   title: {
