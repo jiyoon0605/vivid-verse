@@ -1,9 +1,9 @@
-import { Textarea } from '@nextui-org/input';
+import { Input } from '@nextui-org/input';
 import { ChangeEvent } from 'react';
 
 import { TextInputProps } from '@/types';
 
-export default function CommonTextArea({onChange, ...props}: TextInputProps) {
+export default function CommonTextInput({onChange, ...props}: TextInputProps) {
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     if (props.maxLength && e.target.value.length >= props.maxLength) {
       return;
@@ -13,15 +13,10 @@ export default function CommonTextArea({onChange, ...props}: TextInputProps) {
   
   return (
     <div>
-      <Textarea
+      <Input
         {...props}
         fullWidth
         classNames={{
-          label: 'w-full h-full',
-          innerWrapper: [
-            'flex',
-            'flex-col'
-          ],
           inputWrapper: [
             'border-1',
             'border-default-300',
@@ -30,17 +25,17 @@ export default function CommonTextArea({onChange, ...props}: TextInputProps) {
         }}
         isDisabled={props.isDisabled || props.isLoading}
         labelPlacement={'outside'}
+        variant={'flat'}
         maxLength={props.maxLength}
         onChange={onChangeHandler}
         endContent={<>
           {props.maxLength && (
-            <p className="w-full text-right text-xs text-background-300">
+            <p className="text-right text-xs text-background-300">
               {props.value.length}/{props.maxLength}
             </p>
           )}
         </>}
       />
-    
     </div>
   );
 }
