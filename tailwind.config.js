@@ -36,7 +36,7 @@ module.exports = {
           opacity: 1,
           transform: 'translateY(0)',
         },
-      }
+      },
     },
     animation: {
       'appear-right': 'appear-right 0.5s ease-out',
