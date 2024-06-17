@@ -6,6 +6,7 @@
   },
   "sentence": {
     "title": "Redefine Your Sentence in New Sensations",
-    "description": "Enter your sentence, and AI will transform it with new sensations. Please note that only one expression per sentence is recognized."
+    "description": "Enter your sentence, and AI will transform it with new sensations. Please note that only one expression per sentence is recognized.",
+    "analysis": "Analysis"
   }
 }

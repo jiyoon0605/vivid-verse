@@ -16,6 +16,7 @@ export default function CommonTextInput({ onChange, ...props }: TextInputProps) 
       <Input
         {...props}
         fullWidth
+        size={'lg'}
         classNames={{
           inputWrapper: [
             'border-1',

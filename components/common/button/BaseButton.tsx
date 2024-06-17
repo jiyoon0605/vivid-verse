@@ -14,7 +14,7 @@ export const BaseButton = ({
 }: ButtonProps) => {
   return (
     <Button
-      className={`font-bold`}
+      className={`font-bold text-${size}`}
       color={'primary'}
       isDisabled={isDisabled}
       isLoading={isLoading}
