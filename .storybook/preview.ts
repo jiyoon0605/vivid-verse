@@ -10,12 +10,6 @@ const preview: Preview = {
         appDirectory: true,
       },
     },
-    async beforeEach() {
-      // 👇 Manipulate the default router method mocks
-      getRouter().push.mockImplementation(() => {
-        /* ... */
-      });
-    },
   },
 };
 
