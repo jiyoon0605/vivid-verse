@@ -7,7 +7,11 @@ import { Locale } from '@/i18n-config';
 const SENTENCE = 'sentence';
 const PARAGRAPH = 'paragraph';
 type NavType = 'paragraph' | 'sentence';
-export default function NavTab({ i18n }: any) {
+
+interface NavTabProps {
+  i18n: object;
+}
+export default function NavTab({ i18n }: NavTabProps) {
   const params = useParams<{ lang: Locale }>();
   const router = useRouter();
   const segment = useSelectedLayoutSegments();
@@ -23,7 +27,7 @@ export default function NavTab({ i18n }: any) {
     <nav className={'my-4 flex gap-2 max-md:justify-center'}>
       <Chip
         size={'lg'}
-        className={'cursor-pointer'}
+        className={'cursor-pointer px-5'}
         color={'secondary'}
         isDisabled={isDisabled(SENTENCE)}
         onClick={() => onClick(SENTENCE)}
@@ -32,7 +36,7 @@ export default function NavTab({ i18n }: any) {
       </Chip>
       <Chip
         size={'lg'}
-        className={'cursor-pointer'}
+        className={'cursor-pointer px-5'}
         color={'secondary'}
         isDisabled={isDisabled(PARAGRAPH)}
         onClick={() => onClick(PARAGRAPH)}
