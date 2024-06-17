@@ -1,7 +1,5 @@
-'use client'
-import CommonTextArea from '@/components/common/input/CommonTextArea';
+'use client';
 
 export default function SentenceForm() {
-  return <form>
-  </form>
+  return <form />;
 }

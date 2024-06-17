@@ -3,14 +3,14 @@ import { ChangeEvent } from 'react';
 
 import { TextInputProps } from '@/types';
 
-export default function CommonTextInput({onChange, ...props}: TextInputProps) {
+export default function CommonTextInput({ onChange, ...props }: TextInputProps) {
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     if (props.maxLength && e.target.value.length >= props.maxLength) {
       return;
     }
     onChange(e);
   };
-  
+
   return (
     <div>
       <Input
@@ -21,20 +21,22 @@ export default function CommonTextInput({onChange, ...props}: TextInputProps) {
             'border-1',
             'border-default-300',
             'text-text-' + (props.isDisabled ? 200 : 100),
-          ]
+          ],
         }}
+        endContent={
+          <>
+            {props.maxLength && (
+              <p className="text-right text-xs text-background-300">
+                {props.value.length}/{props.maxLength}
+              </p>
+            )}
+          </>
+        }
         isDisabled={props.isDisabled || props.isLoading}
         labelPlacement={'outside'}
-        variant={'flat'}
         maxLength={props.maxLength}
+        variant={'flat'}
         onChange={onChangeHandler}
-        endContent={<>
-          {props.maxLength && (
-            <p className="text-right text-xs text-background-300">
-              {props.value.length}/{props.maxLength}
-            </p>
-          )}
-        </>}
       />
     </div>
   );
