@@ -2,29 +2,27 @@
 
 import { Chip } from '@nextui-org/chip';
 import { useParams, useRouter, useSelectedLayoutSegments } from 'next/navigation';
-
-import { Locale } from '@/i18n-config';
+import { Locale } from '@/types';
+import { useTranslations } from 'next-intl';
 
 const SENTENCE = 'sentence';
 const PARAGRAPH = 'paragraph';
 
 type NavType = 'paragraph' | 'sentence';
 
-interface NavTabProps {
-  i18n: typeof import('@/dictionaries/en.json');
-}
-export default function NavTab({ i18n }: NavTabProps) {
-  const params = useParams<{ lang: Locale }>();
+export default function NavTab() {
+  const {locale} = useParams<{ locale: Locale }>();
+  const t = useTranslations('nav');
   const router = useRouter();
   const segment = useSelectedLayoutSegments();
   const isDisabled = (value: NavType) => {
     return segment.includes(value);
   };
-
+  
   const onClick = (value: NavType) => {
-    router.push(`/${params.lang}/${value}`);
+    router.push(`/${locale}/${value}`);
   };
-
+  
   return (
     <nav className={'my-4 flex gap-2 max-md:justify-center'}>
       <Chip
@@ -34,7 +32,7 @@ export default function NavTab({ i18n }: NavTabProps) {
         size={'lg'}
         onClick={() => onClick(SENTENCE)}
       >
-        {i18n.nav.sentence}
+        {t('sentence')}
       </Chip>
       <Chip
         className={'cursor-pointer px-5'}
@@ -43,7 +41,7 @@ export default function NavTab({ i18n }: NavTabProps) {
         size={'lg'}
         onClick={() => onClick(PARAGRAPH)}
       >
-        {i18n.nav.paragraph}
+        {t('paragraph')}
       </Chip>
     </nav>
   );

@@ -1,7 +1,5 @@
 import { ChangeEventHandler, MouseEventHandler, SVGProps } from 'react';
 
-import { Locale } from '@/i18n-config';
-
 export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
 };
@@ -31,6 +29,8 @@ export interface TextInputProps {
 
 export interface DefaultPageProps {
   params: {
-    lang: Locale;
+    locale: Locale;
   };
 }
+
+export type Locale = 'en' | 'ko' | 'ja' | 'zh';
