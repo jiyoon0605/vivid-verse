@@ -62,7 +62,7 @@ export default function Header() {
         defaultSelectedKeys={[params.lang]}
         disabledKeys={[params.lang]}
         size={'md'}
-        onChange={e => onChangeLanguage(e.target.value as Locale)}
+        onChange={(e) => onChangeLanguage(e.target.value as Locale)}
       >
         {Languages.map(({ value, label }) => (
           <SelectItem key={value} value={value}>

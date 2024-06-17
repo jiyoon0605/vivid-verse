@@ -67,6 +67,7 @@
     "@storybook/nextjs": "^8.1.9",
     "@storybook/react": "^8.1.9",
     "@storybook/test": "^8.1.9",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "eslint-plugin-storybook": "^0.8.0",
     "storybook": "^8.1.9"
   }

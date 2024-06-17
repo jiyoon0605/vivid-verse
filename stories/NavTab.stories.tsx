@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import NavTab from '@/components/common/NavTab';
-import { getDictionary } from '@/dictionaries/dictionaries';
 
+import NavTab from '@/components/common/NavTab';
 
 const meta = {
   title: 'Common/NavTab',
@@ -20,7 +19,6 @@ const meta = {
             sentence: 'Sentence',
             paragraph: 'Paragraph',
           },
-          
         },
       },
     },
@@ -31,9 +29,8 @@ const meta = {
         sentence: 'Sentence',
         paragraph: 'Paragraph',
       },
-      
     },
-  }
+  },
 } satisfies Meta<typeof NavTab>;
 
 export default meta;

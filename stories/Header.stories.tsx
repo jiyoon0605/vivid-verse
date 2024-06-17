@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Header from '@/components/common/Header';
-import { getRouter } from '@storybook/nextjs/router.mock';
 
 const meta = {
   title: 'Common/Header',
@@ -11,9 +10,9 @@ const meta = {
     appDirectory: true,
   },
   decorators: [
-    Story => (
-      <div style={{width: '100dvw'}}>
-        <Story/>
+    (Story) => (
+      <div style={{ width: '100dvw' }}>
+        <Story />
       </div>
     ),
   ],
