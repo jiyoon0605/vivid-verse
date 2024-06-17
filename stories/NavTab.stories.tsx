@@ -29,7 +29,7 @@ const meta = {
         sentence: 'Sentence',
         paragraph: 'Paragraph',
       },
-    },
+    } as any,
   },
 } satisfies Meta<typeof NavTab>;
 
