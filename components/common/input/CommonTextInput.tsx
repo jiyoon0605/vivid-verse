@@ -5,7 +5,7 @@ import { TextInputProps } from '@/types';
 
 export default function CommonTextInput({ onChange, ...props }: TextInputProps) {
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    if (props.maxLength && e.target.value.length >= props.maxLength) {
+    if (props.maxLength && e.target.value.length > props.maxLength) {
       return;
     }
     onChange(e);
