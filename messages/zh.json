@@ -4,9 +4,17 @@
     "sentence": "句子",
     "paragraph": "段落"
   },
+  "sense": {
+    "vision": "视觉",
+    "hearing": "听觉",
+    "smell": "嗅觉",
+    "taste": "味觉",
+    "touch": "触觉"
+  },
   "sentence": {
     "title": "用新的感官重新定义你的句子",
     "description": "请输入句子，AI 会将其转换为新的感官体验。请注意，每个句子只能识别一个表达。",
-    "analysis": "分析"
+    "analysis": "分析",
+    "checkSense": "这是关于<p>{sense}</p>的表达吗？"
   }
 }

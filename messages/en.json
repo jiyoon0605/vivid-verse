@@ -4,9 +4,17 @@
     "sentence": "sentence",
     "paragraph": "paragraph"
   },
+  "sense": {
+    "vision": "Vision",
+    "hearing": "Hearing",
+    "smell": "Smell",
+    "taste": "Taste",
+    "touch": "Touch"
+  },
   "sentence": {
     "title": "Redefine Your Sentence in New Sensations",
     "description": "Enter your sentence, and AI will transform it with new sensations. Please note that only one expression per sentence is recognized.",
-    "analysis": "Analysis"
+    "analysis": "Analysis",
+    "checkSense": "Is this an expression using the sense of <p>{sense}</p> "
   }
 }

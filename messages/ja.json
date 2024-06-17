@@ -4,9 +4,17 @@
     "sentence": "文章",
     "paragraph": "段落"
   },
+  "sense": {
+    "vision": "視覚",
+    "hearing": "聴覚",
+    "smell": "嗅覚",
+    "taste": "味覚",
+    "touch": "触覚"
+  },
   "sentence": {
     "title": "新しい感覚であなたの文を再定義しましょう",
     "description": "文を入力すると、AIがあなたの感覚を新しく変換します。1文につき1つの表現のみ認識可能です。",
-    "analysis": "分析"
+    "analysis": "分析",
+    "checkSense": "<p>{sense}</p>を使った表現ですか？"
   }
 }

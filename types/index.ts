@@ -34,3 +34,5 @@ export interface DefaultPageProps {
 }
 
 export type Locale = 'en' | 'ko' | 'ja' | 'zh';
+
+export type SenseResult = 'INIT' | 'VISION' | 'TOUCH' | 'SMELL' | 'HEARING' | 'TASTE' | 'NOT_SENSE' | 'OVER_LIMIT'
