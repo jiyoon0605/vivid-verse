@@ -44,3 +44,8 @@ export type SenseResult =
   | 'TASTE'
   | 'NOT_SENSE'
   | 'OVER_LIMIT';
+
+export interface Code<T> {
+  value: T;
+  label: string;
+}
