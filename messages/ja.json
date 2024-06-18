@@ -21,6 +21,7 @@
     "analysis": "分析",
     "checkSense": "<p>{sense}</p>を使った表現ですか？",
     "notSense": "これは感覚を使った表現ではありません。",
-    "overLimit": "1文のみ入力可能です。"
+    "overLimit": "1文のみ入力可能です。",
+    "selectSense": "これはどの感覚を利用した表現ですか？"
   }
 }

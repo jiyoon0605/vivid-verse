@@ -21,6 +21,7 @@
     "analysis": "Analysis",
     "checkSense": "Is this an expression using the sense of <p>{sense}</p> ",
     "notSense": "This is not an expression using the sense.",
-    "overLimit": "Only one sentence is allowed."
+    "overLimit": "Only one sentence is allowed.",
+    "selectSense": "Which sense is this expression using?"
   }
 }

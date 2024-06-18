@@ -21,6 +21,7 @@
     "analysis": "分析",
     "checkSense": "这是关于<p>{sense}</p>的表达吗？",
     "notSense": "这不是关于感官的表达。",
-    "overLimit": "只能输入一个句子。"
+    "overLimit": "只能输入一个句子。",
+    "selectSense": "这是什么感官的表达？"
   }
 }

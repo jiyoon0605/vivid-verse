@@ -21,6 +21,7 @@
     "analysis": "분석",
     "checkSense": "<p>{sense}적</p> 감각을 이용한 표현이 맞나요？",
     "notSense": "감각을 이용한 표현이 아닙니다.",
-    "overLimit": "한 문장만 입력 가능합니다."
+    "overLimit": "한 문장만 입력 가능합니다.",
+    "selectSense": "어떤 감각을 이용한 표현인가요？"
   }
 }
