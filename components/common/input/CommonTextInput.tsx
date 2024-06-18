@@ -16,7 +16,6 @@ export default function CommonTextInput({ onChange, ...props }: TextInputProps) 
       <Input
         {...props}
         fullWidth
-        size={'lg'}
         classNames={{
           inputWrapper: [
             'border-1',
@@ -36,6 +35,7 @@ export default function CommonTextInput({ onChange, ...props }: TextInputProps) 
         isDisabled={props.isDisabled || props.isLoading}
         labelPlacement={'outside'}
         maxLength={props.maxLength}
+        size={'lg'}
         variant={'flat'}
         onChange={onChangeHandler}
       />

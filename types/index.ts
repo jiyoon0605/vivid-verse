@@ -12,7 +12,7 @@ export interface ButtonProps {
   isDisabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
   size?: Size;
-  label: string;
+  children: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -35,4 +35,12 @@ export interface DefaultPageProps {
 
 export type Locale = 'en' | 'ko' | 'ja' | 'zh';
 
-export type SenseResult = 'INIT' | 'VISION' | 'TOUCH' | 'SMELL' | 'HEARING' | 'TASTE' | 'NOT_SENSE' | 'OVER_LIMIT'
+export type SenseResult =
+  | 'INIT'
+  | 'VISION'
+  | 'TOUCH'
+  | 'SMELL'
+  | 'HEARING'
+  | 'TASTE'
+  | 'NOT_SENSE'
+  | 'OVER_LIMIT';

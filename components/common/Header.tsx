@@ -4,6 +4,7 @@
 import { Select, SelectItem } from '@nextui-org/select';
 import React from 'react';
 import { useParams, usePathname, useRouter } from 'next/navigation';
+
 import { Locale } from '@/types';
 
 const Languages = [
@@ -27,13 +28,13 @@ const Languages = [
 
 export default function Header() {
   const router = useRouter();
-  const {locale} = useParams<{ locale: Locale }>();
+  const { locale } = useParams<{ locale: Locale }>();
   const pathname = usePathname();
-  
+
   const onChangeLanguage = (newLang: Locale) => {
     router.push(`/${newLang}${pathname.slice(3)}`);
   };
-  
+
   return (
     <header
       className={`
@@ -63,7 +64,7 @@ export default function Header() {
         size={'md'}
         onChange={(e) => onChangeLanguage(e.target.value as Locale)}
       >
-        {Languages.map(({value, label}) => (
+        {Languages.map(({ value, label }) => (
           <SelectItem key={value} value={value}>
             {label}
           </SelectItem>

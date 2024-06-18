@@ -4,6 +4,10 @@
     "sentence": "sentence",
     "paragraph": "paragraph"
   },
+  "common": {
+    "yes": "Yes",
+    "no": "No"
+  },
   "sense": {
     "vision": "Vision",
     "hearing": "Hearing",
@@ -15,6 +19,8 @@
     "title": "Redefine Your Sentence in New Sensations",
     "description": "Enter your sentence, and AI will transform it with new sensations. Please note that only one expression per sentence is recognized.",
     "analysis": "Analysis",
-    "checkSense": "Is this an expression using the sense of <p>{sense}</p> "
+    "checkSense": "Is this an expression using the sense of <p>{sense}</p> ",
+    "notSense": "This is not an expression using the sense.",
+    "overLimit": "Only one sentence is allowed."
   }
 }

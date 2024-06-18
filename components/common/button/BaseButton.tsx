@@ -4,7 +4,7 @@ import { Button } from '@nextui-org/button';
 import { ButtonProps } from '@/types';
 
 export const BaseButton = ({
-  label,
+  children,
   type = 'button',
   size = 'md',
   variant = 'solid',
@@ -24,7 +24,7 @@ export const BaseButton = ({
       variant={variant}
       onClick={onClick}
     >
-      {!isLoading && label}
+      {!isLoading && children}
     </Button>
   );
 };

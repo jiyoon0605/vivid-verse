@@ -1,7 +1,10 @@
 'use client';
 
-import { SenseResult } from '@/types';
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+
+import { SenseResult } from '@/types';
+import { TextButton } from '@/components/common/button/TextButton';
 
 interface SentenceCheck {
   sense: SenseResult;
@@ -9,20 +12,19 @@ interface SentenceCheck {
 
 export default function SentenceCheck({ sense }: SentenceCheck) {
   const t = useTranslations('');
-
+  const [isSense, setIsSense] = useState<boolean | null>(null);
+  
+  const isValidValue = !['INIT', 'NOT_SENSE', 'OVER_LIMIT'].includes(sense);
   const getLabel = () => {
     const senseKey = `sense.${sense.toLowerCase().trim()}`;
-    console.log(senseKey);
-    console.log(t(senseKey));
-    console.log(t('sense.hearing'));
-    console.log(t(`sentence.checkSense`, { sense: t(senseKey) }));
+
     switch (sense) {
       case 'INIT':
         return '';
       case 'NOT_SENSE':
-        return 'NOT_SENSE';
+        return t('sentence.notSense');
       case 'OVER_LIMIT':
-        return 'NOT_SENSE';
+        return t('sentence.overLimit');
       default:
         return t.rich(`sentence.checkSense`, {
           sense: t(`${senseKey}`),
@@ -32,12 +34,23 @@ export default function SentenceCheck({ sense }: SentenceCheck) {
   };
 
   return (
-    <>
-      {sense !== 'INIT' && (
-        <div>
-          <p dangerouslySetInnerHTML={{ __html: getLabel() }} />
-        </div>
+    <div>
+      <p dangerouslySetInnerHTML={{ __html: getLabel() }} />
+      {isValidValue && (
+        <>
+          <div>
+            <TextButton isSelected={isSense === true} onClick={() => setIsSense(true)}>
+              {t('common.yes')}
+            </TextButton>
+            <TextButton isSelected={isSense === false} onClick={() => setIsSense(false)}>
+              {t('common.no')}
+            </TextButton>
+          </div>
+          {/*{isSense !== null && (*/}
+
+          {/*)}*/}
+        </>
       )}
-    </>
+    </div>
   );
 }

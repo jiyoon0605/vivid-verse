@@ -12,7 +12,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    label: { control: 'text' },
+    children: { control: 'text' },
     isLoading: { control: 'boolean' },
     isDisabled: { control: 'boolean' },
     size: { control: 'radio', options: ['sm', 'md', 'lg'] },
@@ -26,48 +26,48 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'Button',
+    children: 'Button',
   },
 };
 
 export const Loading: Story = {
   args: {
-    label: 'Button',
+    children: 'Button',
     isLoading: true,
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: 'Button',
+    children: 'Button',
     isDisabled: true,
   },
 };
 
 export const Solid: Story = {
   args: {
-    label: 'Button',
+    children: 'Button',
     variant: 'solid',
   },
 };
 
 export const Bordered: Story = {
   args: {
-    label: 'Button',
+    children: 'Button',
     variant: 'bordered',
   },
 };
 
 export const Ghost: Story = {
   args: {
-    label: 'Button',
+    children: 'Button',
     variant: 'ghost',
   },
 };
 
 export const Shadow: Story = {
   args: {
-    label: 'Button',
+    children: 'Button',
     variant: 'shadow',
   },
 };

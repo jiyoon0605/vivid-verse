@@ -1,15 +1,15 @@
 import React from 'react';
+import { getMessages } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
 
 import * as Font from '@/config/fonts';
 import Header from '@/components/common/Header';
 import NavTab from '@/components/common/NavTab';
-import { getMessages } from 'next-intl/server';
-import { NextIntlClientProvider } from 'next-intl';
 
 export default async function Layout({
-                                       children,
-                                       params: {locale}
-                                     }: {
+  children,
+  params: { locale },
+}: {
   children: React.ReactNode;
   params: { locale: string };
 }) {
@@ -25,15 +25,15 @@ export default async function Layout({
         return `${Font.fontRobotoEn.className}`;
     }
   };
-  
+
   const messages = await getMessages();
-  
+
   return (
     <NextIntlClientProvider messages={messages}>
       <div className={getFontByLang()}>
-        <Header/>
+        <Header />
         <main className={'text-text-100'}>
-          <NavTab/>
+          <NavTab />
           {children}
         </main>
       </div>

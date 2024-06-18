@@ -1,9 +1,10 @@
 'use client';
 
-import CommonTextInput from '@/components/common/input/CommonTextInput';
 import { useState } from 'react';
-import { BaseButton } from '@/components/common/button/BaseButton';
 import { useTranslations } from 'next-intl';
+
+import CommonTextInput from '@/components/common/input/CommonTextInput';
+import { BaseButton } from '@/components/common/button/BaseButton';
 import { getSenseType } from '@/lib/api/ai';
 import SentenceCheck from '@/app/[locale]/sentence/_components/SentenceCheck';
 import { SenseResult } from '@/types';
@@ -25,20 +26,19 @@ export default function SentenceForm() {
   };
 
   const t = useTranslations('sentence');
+
   return (
     <form className={'my-8 animate-appear-bottom'}>
       <CommonTextInput
-        value={inputValue}
-        maxLength={100}
         isLoading={isReady}
+        maxLength={100}
+        value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
       <div className={'my-8'} />
-      <BaseButton
-        label={t('analysis')}
-        isLoading={isReady}
-        onClick={() => onAnalysisClick(inputValue)}
-      />
+      <BaseButton isLoading={isReady} onClick={() => onAnalysisClick(inputValue)}>
+        {t('analysis')}
+      </BaseButton>
       <SentenceCheck sense={sense} />
     </form>
   );

@@ -4,6 +4,10 @@
     "sentence": "文章",
     "paragraph": "段落"
   },
+  "common": {
+    "Yes": "はい",
+    "No": "いいえ"
+  },
   "sense": {
     "vision": "視覚",
     "hearing": "聴覚",
@@ -15,6 +19,8 @@
     "title": "新しい感覚であなたの文を再定義しましょう",
     "description": "文を入力すると、AIがあなたの感覚を新しく変換します。1文につき1つの表現のみ認識可能です。",
     "analysis": "分析",
-    "checkSense": "<p>{sense}</p>を使った表現ですか？"
+    "checkSense": "<p>{sense}</p>を使った表現ですか？",
+    "notSense": "これは感覚を使った表現ではありません。",
+    "overLimit": "1文のみ入力可能です。"
   }
 }
