@@ -1,6 +1,8 @@
-import ChipRadioGroup from '@/components/common/input/ChipRadioGroup';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { fn } from '@storybook/test';
+
+import ChipRadioGroup from '@/components/common/input/ChipRadioGroup';
 
 const meta = {
   title: 'Input/ChipRadioGroup',

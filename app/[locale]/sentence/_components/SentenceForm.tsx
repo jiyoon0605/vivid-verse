@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import CommonTextInput from '@/components/common/input/CommonTextInput';
@@ -13,12 +13,12 @@ export default function SentenceForm() {
   const [inputValue, setInputValue] = useState<string>('');
   const [isReady, setIsReady] = useState<boolean>(false);
   const [sense, setSense] = useState<SenseResult>('INIT');
-  const senseLabel = useTranslations('sense');
+
   const onAnalysisClick = (sentence: string) => {
     setIsReady(true);
     getSenseType(sentence)
       .then((result: SenseResult) => {
-        setSense(result);
+        setSense(result.trim() as SenseResult);
       })
       .finally(() => {
         setIsReady(false);
@@ -27,8 +27,12 @@ export default function SentenceForm() {
 
   const t = useTranslations('sentence');
 
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className={'my-8 animate-appear-bottom'}>
+    <form className={'my-8 animate-appear-bottom'} onSubmit={onSubmit}>
       <CommonTextInput
         isLoading={isReady}
         maxLength={100}

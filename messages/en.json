@@ -20,8 +20,9 @@
     "description": "Enter your sentence, and AI will transform it with new sensations. Please note that only one expression per sentence is recognized.",
     "analysis": "Analysis",
     "checkSense": "Is this an expression using the sense of <p>{sense}</p> ",
-    "notSense": "This is not an expression using the sense.",
+    "notSense": "It is not a sentence using sensory expressions. Please choose directly.",
     "overLimit": "Only one sentence is allowed.",
-    "selectSense": "Which sense is this expression using?"
+    "selectSense": "Which sense is this expression using?",
+    "changeSense": "Transforming {sense}-based expressions into different expressions."
   }
 }

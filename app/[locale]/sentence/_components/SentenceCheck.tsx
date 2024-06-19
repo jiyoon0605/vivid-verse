@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { SenseResult } from '@/types';
 import { TextButton } from '@/components/common/button/TextButton';
@@ -18,10 +18,15 @@ export default function SentenceCheck({ sense }: SentenceCheck) {
   const [isSense, setIsSense] = useState<boolean | null>(null);
   const [selectedSense, setSelectedSense] = useState<string>('');
   const isValidValue = !['INIT', 'NOT_SENSE', 'OVER_LIMIT'].includes(sense);
+  const [label, setLabel] = useState<string>('');
 
+  useEffect(() => {
+    setIsSense(null);
+    setSelectedSense('');
+    setLabel(getLabel().toString());
+  }, [sense]);
   const getLabel = () => {
     const senseKey = `sense.${sense.toLowerCase().trim()}`;
-
     switch (sense) {
       case 'INIT':
         return '';
@@ -38,13 +43,14 @@ export default function SentenceCheck({ sense }: SentenceCheck) {
   };
 
   return (
-    <div>
-      <p dangerouslySetInnerHTML={{ __html: getLabel() }} />
+    <div className={'mt-4 mb-12'}>
+      <span dangerouslySetInnerHTML={{ __html: label }} />
       {isValidValue && (
         <>
-          <div>
+          <span className={'mb-8'}>
             <TextButton
               isSelected={isSense === true}
+              size={'sm'}
               onClick={() => {
                 setIsSense(true);
                 setSelectedSense(sense.toLowerCase().trim());
@@ -54,6 +60,7 @@ export default function SentenceCheck({ sense }: SentenceCheck) {
             </TextButton>
             <TextButton
               isSelected={isSense === false}
+              size={'sm'}
               onClick={() => {
                 setIsSense(false);
                 setSelectedSense('');
@@ -61,29 +68,31 @@ export default function SentenceCheck({ sense }: SentenceCheck) {
             >
               {t('common.no')}
             </TextButton>
-          </div>
-          {isSense === false && (
-            <div>
-              <p>{t('sentence.selectSense')}</p>
-              <ChipRadioGroup
-                onChange={(e) => {
-                  setSelectedSense(e.target.value);
-                }}
-              >
-                {SENSES.map((sense) => (
-                  <ChipRadioGroup.Chip key={sense} value={sense}>
-                    {t(`sense.${sense}`)}
-                  </ChipRadioGroup.Chip>
-                ))}
-              </ChipRadioGroup>
-            </div>
-          )}
-          {selectedSense && (
-            <BaseButton onClick={() => {}}>
-              {`${t(`sense.${selectedSense}`)} 를 다른 표현으로 변환`}
-            </BaseButton>
-          )}
+          </span>
         </>
+      )}
+      {(isSense === false || sense === 'NOT_SENSE') && (
+        <div className={'my-4'}>
+          <p className={'my-2'}>{t('sentence.selectSense')}</p>
+          <ChipRadioGroup
+            onChange={(e) => {
+              setSelectedSense(e.target.value);
+            }}
+          >
+            {SENSES.map((sense) => (
+              <ChipRadioGroup.Chip key={sense} value={sense}>
+                {t(`sense.${sense}`)}
+              </ChipRadioGroup.Chip>
+            ))}
+          </ChipRadioGroup>
+        </div>
+      )}
+      {selectedSense && (
+        <div className={'mt-8'}>
+          <BaseButton type={'submit'} onClick={() => {}}>
+            {`${t(`sense.${selectedSense}`)} 를 다른 표현으로 변환`}
+          </BaseButton>
+        </div>
       )}
     </div>
   );

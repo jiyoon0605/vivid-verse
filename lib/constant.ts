@@ -13,5 +13,4 @@ const SENSES_MAP = {
   SMELL,
 };
 
-
 export { VISION, HEARING, TASTE, TOUCH, SMELL, SENSES, SENSES_MAP };
