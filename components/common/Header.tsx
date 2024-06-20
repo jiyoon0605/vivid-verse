@@ -41,11 +41,14 @@ export default function Header() {
               w-dvw bg-background-100
               px-20
               max-sm:px-3
+              max-sm:fixed
+              top-0
               py-3
               shadow-md
               flex
               justify-between
               items-center
+              z-10
               `}
     >
       <div>vivid verse</div>

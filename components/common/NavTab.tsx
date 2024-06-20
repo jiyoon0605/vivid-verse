@@ -25,7 +25,7 @@ export default function NavTab() {
   };
 
   return (
-    <nav className={'my-8 flex gap-2 max-md:justify-center'}>
+    <nav className={'my-8 flex gap-2 max-md:justify-center max-sm:mt-20'}>
       <Chip
         className={'cursor-pointer px-5'}
         color={'secondary'}

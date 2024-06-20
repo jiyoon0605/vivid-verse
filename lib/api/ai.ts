@@ -18,27 +18,57 @@ const generationConfig = {
 };
 
 export async function getSenseType(sentence: string) {
-  const chatSession = model.startChat({
+  const parts = [
+    { text: 'input: 바다 같이 푸른 눈동자' },
+    { text: 'output: VISION' },
+    { text: 'input: 부드러운 벨벳 같은 목소리' },
+    { text: 'output: TOUCH' },
+    { text: 'input: 신선한 풀 내음 같은 웃음' },
+    { text: 'output: SMELL' },
+    { text: 'input: 맑은 종소리 같은 웃음' },
+    { text: 'output: HEARING' },
+    { text: 'input: 씁쓸한 기분' },
+    { text: 'output: TASTE' },
+    { text: 'input: 다른것' },
+    { text: 'output: NOT_SENSE' },
+    { text: 'input: 감각이 아닌 표현' },
+    { text: 'output: NOT_SENSE' },
+    { text: 'input: 두 문장 이상' },
+    { text: 'output: OVER_LIMIT' },
+    { text: 'input: 그 애 목소리는 시원한 바닷 바람 같았다. 참 달콤한 기분이였다.' },
+    { text: 'output: OVER_LIMIT' },
+    { text: 'input: 토마토 같이 붉어진 얼굴로 말했다. 너는 바닷 바람 같아.' },
+    { text: 'output: OVER_LIMIT' },
+    { text: 'input: 바보같아' },
+    { text: 'output: NOT_SENSE' },
+    { text: `input: ${sentence}` },
+    { text: 'output: ' },
+  ];
+  const result = await model.generateContent({
+    contents: [{ role: 'user', parts }],
     generationConfig,
-    // safetySettings: Adjust safety settings
-    // See https://ai.google.dev/gemini-api/docs/safety-settings
-    history: [
+    safetySettings: [
       {
-        role: 'user',
-        parts: [
-          {
-            text: '내가 한 문장을 주면 넌 그게 어떤 감각 표현을 사용한 문장인지 알려줘\n\n시각을 이용한 표현: VISION\n청각을 이용한 표현: HEARING\n촉각을 이용한 표현: TOUCH\n후각을 이용한 표현: SMELL\n미각을 이용한 표현: TASTE\n감각을 이용한 표현이 아닐 경우: NOT_SENSE\n두 문장 이상 입력된 경우: OVER_LIMIT',
-          },
-        ],
+        category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold: HarmBlockThreshold.HARM_BLOCK_THRESHOLD_UNSPECIFIED,
       },
       {
-        role: 'user',
-        parts: [{ text: sentence }],
+        category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        threshold: HarmBlockThreshold.HARM_BLOCK_THRESHOLD_UNSPECIFIED,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+        threshold: HarmBlockThreshold.HARM_BLOCK_THRESHOLD_UNSPECIFIED,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold: HarmBlockThreshold.HARM_BLOCK_THRESHOLD_UNSPECIFIED,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+        threshold: HarmBlockThreshold.HARM_BLOCK_THRESHOLD_UNSPECIFIED,
       },
     ],
   });
-
-  const result = await chatSession.sendMessage('INSERT_INPUT_HERE');
-
   return result.response.text() as SenseResult;
 }
