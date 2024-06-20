@@ -44,10 +44,10 @@ export default function SentenceCheck({ sense }: SentenceCheck) {
 
   return (
     <div className={'mt-4 mb-12'}>
-      <span dangerouslySetInnerHTML={{ __html: label }} />
-      {isValidValue && (
-        <>
-          <span className={'mb-8'}>
+      <div className={'max-w-dvw flex items-center'}>
+        <p dangerouslySetInnerHTML={{ __html: label }} className={'break-words text-pretty'} />
+        {isValidValue && (
+          <div className={'whitespace-nowrap'}>
             <TextButton
               isSelected={isSense === true}
               size={'sm'}
@@ -68,9 +68,9 @@ export default function SentenceCheck({ sense }: SentenceCheck) {
             >
               {t('common.no')}
             </TextButton>
-          </span>
-        </>
-      )}
+          </div>
+        )}
+      </div>
       {(isSense === false || sense === 'NOT_SENSE') && (
         <div className={'my-4'}>
           <p className={'my-2'}>{t('sentence.selectSense')}</p>
@@ -90,7 +90,7 @@ export default function SentenceCheck({ sense }: SentenceCheck) {
       {selectedSense && (
         <div className={'mt-8'}>
           <BaseButton type={'submit'} onClick={() => {}}>
-            {`${t(`sense.${selectedSense}`)} 를 다른 표현으로 변환`}
+            {`${t(`sentence.changeSense`, { sense: t(`sense.${selectedSense}`) })}`}
           </BaseButton>
         </div>
       )}

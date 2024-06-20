@@ -41,15 +41,6 @@ export async function getSenseType(sentence: string) {
     { text: 'output: OVER_LIMIT' },
     { text: 'input: 바보같아' },
     { text: 'output: NOT_SENSE' },
-    { text: 'input: 토마토 같이 붉어진 얼굴' },
-    { text: 'output: VISION' },
-    { text: 'input: 바보같아' },
-    { text: 'output: NOT_SENSE' },
-    { text: 'input: 사이다 같은 기분' },
-    { text: 'output: TASTE' },
-    { text: 'input: 바닐라 향이 났다' },
-    { text: 'output: SMELL' },
-    { text: 'input: 바다냄새가 나는듯 했다' },
     { text: `input: ${sentence}` },
     { text: 'output: ' },
   ];
@@ -79,6 +70,5 @@ export async function getSenseType(sentence: string) {
       },
     ],
   });
-
   return result.response.text() as SenseResult;
 }

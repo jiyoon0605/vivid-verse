@@ -3,21 +3,31 @@
 @tailwind utilities;
 
 @layer base {
-  main {
-    padding: 0 12rem;
-  }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
-    /* 태블릿 */
-    main {
-      padding: 0 8rem;
+    body {
+        -ms-overflow-style: none;
+        width: 100dvw;
+        height: 100dvh;
     }
-  }
 
-  @media (max-width: 768px) {
-    /* 모바일 */
-    main {
-      padding: 0 2rem;
+    ::-webkit-scrollbar {
+        display: none;
     }
-  }
+
+    main {
+        padding: 0 12rem;
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        /* 태블릿 */
+        main {
+            padding: 0 8rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        /* 모바일 */
+        main {
+            padding: 0 2rem;
+        }
+    }
 }
