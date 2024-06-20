@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import CommonTextInput from '@/components/common/input/CommonTextInput';
 import { BaseButton } from '@/components/common/button/BaseButton';
 import { getSenseType } from '@/lib/api/ai';
-import SentenceCheck from '@/app/[locale]/sentence/_components/SentenceCheck';
+import SentenceCheck from '@/app/[locale]/(main)/sentence/_components/SentenceCheck';
 import { SenseResult } from '@/types';
 
 export default function SentenceForm() {

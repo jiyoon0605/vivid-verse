@@ -4,7 +4,6 @@ import { NextIntlClientProvider } from 'next-intl';
 
 import * as Font from '@/config/fonts';
 import Header from '@/components/common/Header';
-import NavTab from '@/components/common/NavTab';
 
 export default async function Layout({
   children,
@@ -32,10 +31,7 @@ export default async function Layout({
     <NextIntlClientProvider messages={messages}>
       <div className={getFontByLang()}>
         <Header />
-        <main className={'text-text-100'}>
-          <NavTab />
-          {children}
-        </main>
+        {children}
       </div>
     </NextIntlClientProvider>
   );
