@@ -15,6 +15,24 @@
     "taste": "Taste",
     "touch": "Touch"
   },
+  "example": {
+    "example_0": {
+      "pre": "Eyes that sparkle like the stars in the night sky.",
+      "next": "Eyes like the whisper of moonlight on a quiet night."
+    },
+    "example_1": {
+      "pre": "A voice as soft as velvet.",
+      "next": "A voice like a deep and warm sunset."
+    },
+    "example_2": {
+      "pre": "Laughter like the scent of fresh grass.",
+      "next": "Laughter like the refreshing taste of mint."
+    },
+    "example_3": {
+      "pre": "Laughter like the sound of clear bells.",
+      "next": "Laughter like a gentle spring breeze."
+    }
+  },
   "sentence": {
     "title": "Redefine Your Sentence in New Sensations",
     "description": "Enter your sentence, and AI will transform it with new sensations. Please note that only one expression per sentence is recognized.",

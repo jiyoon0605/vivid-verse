@@ -70,5 +70,6 @@ export async function getSenseType(sentence: string) {
       },
     ],
   });
+
   return result.response.text() as SenseResult;
 }

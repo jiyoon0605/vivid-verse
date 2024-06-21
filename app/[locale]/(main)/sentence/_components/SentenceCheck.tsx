@@ -27,6 +27,7 @@ export default function SentenceCheck({ sense }: SentenceCheck) {
   }, [sense]);
   const getLabel = () => {
     const senseKey = `sense.${sense.toLowerCase().trim()}`;
+
     switch (sense) {
       case 'INIT':
         return '';
