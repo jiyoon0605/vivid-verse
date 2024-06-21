@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 import TextExample from '@/app/[locale]/_components/TextExample';
-import { useTranslations } from 'next-intl';
 
 export default function ExampleSlider() {
   const [idx, setIdx] = useState<number>(0);

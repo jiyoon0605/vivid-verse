@@ -10,6 +10,7 @@ interface TextExampleProps {
 }
 
 const pStyle = 'h-full flex justify-center items-center break-keep text-center';
+
 export default function TextExample({ preText, nextText, inView }: TextExampleProps) {
   const nextControls = useAnimationControls();
   const preControls = useAnimationControls();
