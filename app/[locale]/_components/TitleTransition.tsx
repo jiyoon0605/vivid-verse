@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export default function TitleTransition() {
   const t = useTranslations();
-  const [textColor, setTextColor] = useState<string>('primary');
+  const [textColor, setTextColor] = useState<string>('#71C4EF');
 
   const textAnimate = {
     initial: { y: -100, opacity: 0 },
@@ -19,14 +19,16 @@ export default function TitleTransition() {
                 text-6xl
                 justify-center
                 bg-gradient-to-r from-primary via-violet-500 to-pink-500
-                text-${textColor} bg-clip-text
-                transition 
+                transition bg-clip-text
                 duration-300
                 delay-100
                 ease-out
                 tracking-tighter
                 flex
                 `}
+      style={{
+        color: textColor
+      }}
     >
       <motion.p
         {...textAnimate}

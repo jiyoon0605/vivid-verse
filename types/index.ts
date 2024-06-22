@@ -49,3 +49,7 @@ export interface Code<T> {
   value: T;
   label: string;
 }
+
+export type SentenceConvertResponse = {
+  [key in SenseResult]: string;
+};

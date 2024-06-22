@@ -5,15 +5,16 @@ import { useTranslations } from 'next-intl';
 
 import CommonTextInput from '@/components/common/input/CommonTextInput';
 import { BaseButton } from '@/components/common/button/BaseButton';
-import { getSenseType } from '@/lib/api/ai';
+import { changeSentence, getSenseType } from '@/lib/api/ai';
 import SentenceCheck from '@/app/[locale]/(main)/sentence/_components/SentenceCheck';
 import { SenseResult } from '@/types';
+import { useRouter } from 'next/navigation';
 
 export default function SentenceForm() {
   const [inputValue, setInputValue] = useState<string>('');
   const [isReady, setIsReady] = useState<boolean>(false);
   const [sense, setSense] = useState<SenseResult>('INIT');
-
+  const router = useRouter();
   const onAnalysisClick = (sentence: string) => {
     setIsReady(true);
     getSenseType(sentence)
@@ -29,6 +30,7 @@ export default function SentenceForm() {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
+    router.push(`/sentence/result?sentence=${inputValue}&sense=${sense}`);
   };
 
   return (
