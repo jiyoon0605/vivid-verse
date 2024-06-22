@@ -49,7 +49,8 @@
     "result": {
       "original": "原始句子",
       "changed": "更改后的句子",
-      "reRequest": "重新转换"
+      "reRequest": "重新转换",
+      "gotoBack": "转换为另一句话"
     }
   }
 }

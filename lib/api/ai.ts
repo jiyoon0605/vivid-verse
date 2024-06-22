@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from '@google/generative-ai';
 
-import { SenseResult } from '@/types';
+import { SenseResult, SentenceConvertResponse } from "@/types";
 
 const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey as string);
@@ -90,5 +90,33 @@ export async function changeSentence(sentence: string, sense: SenseResult) {
   });
 
   const result = await chatSession.sendMessage(`${sentence}, ${sense}`);
+  return JSON.parse(result.response.text());
+}
+
+export async function rechangeSentence(sentence: string, sense: SenseResult, response: SentenceConvertResponse) {
+  const chatSession = model.startChat({
+    generationConfig,
+    history: [
+      {
+        role: 'user',
+        parts: [
+          {
+            text: '"문장, 감각" 형태로 입력이 들어오면 문장의 의미가 달라지지 않게 다른 오감을 사용한 표현으로 변경해줘. 변경 불가능하면  문자열 "FAIL"을 반환하고, JSON 형식으로 반환해\n\n출력 형식\n{\n  VISION,\n  SMELL,\n  HEARING,\n  TOUCH,\n  TASTE,\n}',
+          },
+          { text: `${sentence}, ${sense}` },
+        ],
+      },
+      {
+        role: 'model',
+        parts: [
+          {
+            text: JSON.stringify(response),
+          },
+        ],
+      },
+    ],
+  });
+
+  const result = await chatSession.sendMessage("다른 표현으로 다시 변환해줘");
   return JSON.parse(result.response.text());
 }

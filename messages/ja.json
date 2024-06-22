@@ -49,7 +49,8 @@
     "result": {
       "original": "元の文",
       "changed": "変更された文",
-      "reRequest": "再変換"
+      "reRequest": "再変換",
+      "gotoBack": "別の文に変換する"
     }
   }
 }

@@ -49,7 +49,8 @@
     "result": {
       "original": "original sentence",
       "changed": "changed sentence",
-      "reRequest": "convert again"
+      "reRequest": "convert again",
+      "gotoBack": "Convert to another sentence"
     }
   }
 }

@@ -49,7 +49,8 @@
     "result": {
       "original": "원본 문장",
       "changed": "변환된 문장",
-      "reRequest": "다시 변환하기"
+      "reRequest": "다시 변환하기",
+      "gotoBack": "다른 문장 변환하기"
     }
   }
 }
