@@ -1,24 +1,27 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 
 import { SenseResult } from '@/types';
 import { TextButton } from '@/components/common/button/TextButton';
 import ChipRadioGroup from '@/components/common/input/ChipRadioGroup';
 import { BaseButton } from '@/components/common/button/BaseButton';
 import { SENSES } from '@/lib/constant';
+import { useRouter } from 'next/navigation';
 
 interface SentenceCheck {
   sense: SenseResult;
+  sentence: string
 }
 
-export default function SentenceCheck({ sense }: SentenceCheck) {
+export default function SentenceCheck({ sense, sentence }: SentenceCheck) {
   const t = useTranslations('');
   const [isSense, setIsSense] = useState<boolean | null>(null);
   const [selectedSense, setSelectedSense] = useState<string>('');
   const isValidValue = !['INIT', 'NOT_SENSE', 'OVER_LIMIT'].includes(sense);
   const [label, setLabel] = useState<string>('');
+  const router = useRouter();
 
   useEffect(() => {
     setIsSense(null);
@@ -41,6 +44,10 @@ export default function SentenceCheck({ sense }: SentenceCheck) {
           p: (chunks) => `<p class="inline font-bold text-primary">${chunks}</p>`,
         });
     }
+  };
+
+  const onSubmit = () => {
+    router.push(`/sentence/result?sentence=${sentence}&sense=${selectedSense.toUpperCase() ?? sense}`);
   };
 
   return (
@@ -90,7 +97,7 @@ export default function SentenceCheck({ sense }: SentenceCheck) {
       )}
       {selectedSense && (
         <div className={'mt-8'}>
-          <BaseButton type={'submit'} onClick={() => {}}>
+          <BaseButton onClick={onSubmit}>
             {`${t(`sentence.changeSense`, { sense: t(`sense.${selectedSense}`) })}`}
           </BaseButton>
         </div>

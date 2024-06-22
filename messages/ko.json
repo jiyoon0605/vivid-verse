@@ -45,6 +45,11 @@
     "notSense": "감각표현을 이용한 문장이 아닙니다. 직접 선택해주세요.",
     "overLimit": "한 문장만 입력 가능합니다.",
     "selectSense": "어떤 감각을 이용한 표현인가요？",
-    "changeSense": "{sense}적 표현을 다른 표현으로 변환"
+    "changeSense": "{sense}적 표현을 다른 표현으로 변환",
+    "result": {
+      "original": "원본 문장",
+      "changed": "변환된 문장",
+      "reRequest": "다시 변환하기"
+    }
   }
 }

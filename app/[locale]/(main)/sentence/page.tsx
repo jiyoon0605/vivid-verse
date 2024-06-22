@@ -13,8 +13,8 @@ export default async function Page({ params: { locale } }: DefaultPageProps) {
         {t('sentence.description')}
       </p>
       <p className={'pt-2 text-text-300'}>
-        ex) {t('example.example_0.pre')}({t('sense.vision')})<br />
-        {'->'} {t('example.example_0.next')}({t('sense.hearing')})
+        ex) {t('example.example_2.pre')}({t('sense.smell')})<br />
+        {'->'} {t('example.example_2.next')}({t('sense.taste')})
       </p>
       <SentenceForm />
     </div>

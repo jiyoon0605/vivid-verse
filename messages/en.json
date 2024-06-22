@@ -45,6 +45,11 @@
     "notSense": "It is not a sentence using sensory expressions. Please choose directly.",
     "overLimit": "Only one sentence is allowed.",
     "selectSense": "Which sense is this expression using?",
-    "changeSense": "Transforming {sense}-based expressions into different expressions."
+    "changeSense": "Transforming {sense}-based expressions into different expressions.",
+    "result": {
+      "original": "original sentence",
+      "changed": "changed sentence",
+      "reRequest": "convert again"
+    }
   }
 }

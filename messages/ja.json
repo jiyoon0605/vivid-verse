@@ -45,6 +45,11 @@
     "notSense": "感覚表現を使用した文ではありません。直接選択してください。",
     "overLimit": "1文のみ入力可能です。",
     "selectSense": "これはどの感覚を利用した表現ですか？",
-    "changeSense": "{sense}的な表現を別の表現に変換する"
+    "changeSense": "{sense}的な表現を別の表現に変換する",
+    "result": {
+      "original": "元の文",
+      "changed": "変更された文",
+      "reRequest": "再変換"
+    }
   }
 }

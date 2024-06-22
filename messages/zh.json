@@ -45,6 +45,11 @@
     "notSense": "这不是使用感官表达的句子。请直接选择。",
     "overLimit": "只能输入一个句子。",
     "selectSense": "这是什么感官的表达？",
-    "changeSense": "将{sense}表达转换为其他表达。"
+    "changeSense": "将{sense}表达转换为其他表达。",
+    "result": {
+      "original": "原始句子",
+      "changed": "更改后的句子",
+      "reRequest": "重新转换"
+    }
   }
 }
