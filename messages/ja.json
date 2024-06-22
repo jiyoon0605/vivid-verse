@@ -1,5 +1,6 @@
 {
   "test": "テスト",
+  "title": "VIVID VERSE",
   "nav": {
     "sentence": "文章",
     "paragraph": "段落"
@@ -7,6 +8,9 @@
   "common": {
     "Yes": "はい",
     "No": "いいえ"
+  },
+  "main": {
+    "slogan": "一つの感覚を別の感覚に変換し,<br/>文章をより豊かで多彩にする新しい方法。"
   },
   "sense": {
     "vision": "視覚",

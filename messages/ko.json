@@ -1,5 +1,6 @@
 {
   "test": "테스트",
+  "title": "VIVID VERSE",
   "nav": {
     "sentence": "문장",
     "paragraph": "문단"
@@ -7,6 +8,9 @@
   "common": {
     "yes": "예",
     "no": "아니오"
+  },
+  "main": {
+    "slogan": "한 감각에서 다른 감각으로,<br/> 글을 더 풍부하고 다채롭게 만드는 새로운 방법."
   },
   "sense": {
     "vision": "시각",

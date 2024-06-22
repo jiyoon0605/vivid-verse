@@ -1,5 +1,6 @@
 {
   "test": "检验",
+  "title": "VIVID VERSE",
   "nav": {
     "sentence": "句子",
     "paragraph": "段落"
@@ -7,6 +8,9 @@
   "common": {
     "yes": "是的",
     "no": "不是"
+  },
+  "main": {
+    "slogan": "将一种感官转换为另一种感官,<br/> 使文字更丰富多彩的新方法。"
   },
   "sense": {
     "vision": "视觉",

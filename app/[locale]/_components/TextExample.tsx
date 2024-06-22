@@ -9,7 +9,7 @@ interface TextExampleProps {
   inView: boolean;
 }
 
-const pStyle = 'h-full flex justify-center items-center break-keep text-center';
+const pStyle = 'h-full flex justify-center items-center break-word text-center';
 
 export default function TextExample({ preText, nextText, inView }: TextExampleProps) {
   const nextControls = useAnimationControls();
@@ -23,25 +23,37 @@ export default function TextExample({ preText, nextText, inView }: TextExamplePr
       Math.max(...[nextRef.current?.offsetHeight ?? 35, preRef.current?.offsetHeight ?? 35]),
     );
   }, [preText, nextText]);
+
   useEffect(() => {
+    if (!preRef.current || !nextRef.current) {
+      return;
+    }
+
     if (inView) {
       nextControls.start({
         y: 0,
         opacity: 1,
+        color: '#3B3C3D',
       });
       preControls.start({
         y: 0,
-        opacity: 0,
+        opacity: 0.5,
+        color: '#CCCBC8',
       });
     } else {
       setTimeout(() => {
+        if (!preRef.current || !nextRef.current) {
+          return;
+        }
         nextControls.set({
           y: -height,
           opacity: 0,
+          color: '#CCCBC8',
         });
         preControls.set({
           y: -height,
           opacity: 1,
+          color: '#3B3C3D',
         });
       }, 2000);
     }
@@ -51,6 +63,7 @@ export default function TextExample({ preText, nextText, inView }: TextExamplePr
     <div
       className={`w-full 
       font-bold
+      max-sm:text-xl
       text-3xl
       p-4
        h-[${height / 2}px] overflow-hidden`}

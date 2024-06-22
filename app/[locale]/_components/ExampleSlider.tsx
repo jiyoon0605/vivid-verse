@@ -67,7 +67,7 @@ export default function ExampleSlider() {
   }, [idx]);
 
   return (
-    <div className={'w-2/3 overflow-hidden'}>
+    <div className={'lg:w-2/3 overflow-hidden'}>
       <div ref={containerRef} className={'w-full flex'}>
         {exampleTexts.map(({ seqNo, prevText, nextText }, i) => (
           <div
