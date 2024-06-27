@@ -54,7 +54,7 @@ export default function SentenceCheck({ sense, sentence }: SentenceCheck) {
       return;
     }
     router.push(
-      `/sentence/result?sentence=${sentence}&sense=${selectedSense.toUpperCase() ?? sense}`,
+      `/text/sentence/result?sentence=${sentence}&sense=${selectedSense.toUpperCase() ?? sense}`,
     );
   };
 

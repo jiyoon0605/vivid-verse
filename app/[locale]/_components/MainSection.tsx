@@ -29,9 +29,9 @@ export default function MainSection() {
           />
         </div>
         <ExampleSlider />
-        <Link className={'mt-14'} href={'/sentence'}>
+        <Link className={'mt-14'} href={'/text/sentence'}>
           <BaseButton size={'lg'} onClick={() => {}}>
-            바로 시작하기
+            {t('main.start')}
           </BaseButton>
         </Link>
       </div>

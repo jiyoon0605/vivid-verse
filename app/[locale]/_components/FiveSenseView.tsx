@@ -9,9 +9,9 @@ import Link from 'next/link';
 
 import { SenseResult, SentenceConvertResponse } from '@/types';
 import { changeSentence, rechangeSentence } from '@/lib/api/ai';
-import SentenceBox from '@/app/[locale]/(main)/sentence/_components/SentenceBox';
 import { BaseButton } from '@/components/common/button/BaseButton';
 import { TextButton } from '@/components/common/button/TextButton';
+import SentenceBox from '@/app/[locale]/text/sentence/_components/SentenceBox';
 
 export default function FiveSenseView() {
   const router = useRouter();
@@ -26,7 +26,7 @@ export default function FiveSenseView() {
 
   useEffect(() => {
     if (!sentence || !sense) {
-      router.push('/sentence');
+      router.push('/text/sentence');
 
       return;
     }
@@ -46,6 +46,7 @@ export default function FiveSenseView() {
     setLoading(true);
     rechangeSentence(sentence, sense as SenseResult, response)
       .then((res: SentenceConvertResponse) => {
+        console.log(res);
         setResponse(res);
         setResult(Object.entries(res).filter(([key]) => key.toUpperCase() !== sense.toUpperCase()));
       })
@@ -86,12 +87,14 @@ export default function FiveSenseView() {
           </>
         )}
       </div>
-      <div className={'mt-14 flex justify-center'}>
-        <BaseButton size={'lg'} onClick={onReRequest}>
-          {t('reRequest')}
-        </BaseButton>
-      </div>
-      <Link className={'mt-8 flex justify-center'} href={'/sentence'}>
+      {!loading && (
+        <div className={'mt-14 flex justify-center'}>
+          <BaseButton size={'lg'} onClick={onReRequest}>
+            {t('reRequest')}
+          </BaseButton>
+        </div>
+      )}
+      <Link className={'mt-8 flex justify-center'} href={'/text/sentence'}>
         <TextButton onClick={() => {}}>{t('gotoBack')}</TextButton>
       </Link>
     </div>

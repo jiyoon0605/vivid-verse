@@ -7,8 +7,8 @@ import toast from 'react-hot-toast';
 import CommonTextInput from '@/components/common/input/CommonTextInput';
 import { BaseButton } from '@/components/common/button/BaseButton';
 import { getSenseType } from '@/lib/api/ai';
-import SentenceCheck from '@/app/[locale]/(main)/sentence/_components/SentenceCheck';
 import { SenseResult } from '@/types';
+import SentenceCheck from '@/app/[locale]/text/sentence/_components/SentenceCheck';
 
 export default function SentenceForm() {
   const t = useTranslations('');

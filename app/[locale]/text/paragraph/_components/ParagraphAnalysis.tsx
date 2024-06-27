@@ -4,6 +4,8 @@ import { useTranslations } from 'next-intl';
 
 import CommonTextArea from '@/components/common/input/CommonTextArea';
 import { BaseButton } from '@/components/common/button/BaseButton';
+import { analysisParagraph } from '@/lib/api/ai';
+import useParagraph from '@/store/useParagraph';
 
 interface ParagraphAnalysis {
   value: string;
@@ -12,7 +14,13 @@ interface ParagraphAnalysis {
 
 export default function ParagraphAnalysis({ value, onChange }: ParagraphAnalysis) {
   const t = useTranslations('paragraph');
+  const {result, setResult } = useParagraph();
 
+  const onAnalysis = async () => {
+    analysisParagraph(value).then((res) => {
+      console.log(res);
+    })
+  };
   return (
     <div>
       <h1 className={'mt-12 font-bold text-lg animate-appear-right'}>{t('title')}</h1>
@@ -27,7 +35,7 @@ export default function ParagraphAnalysis({ value, onChange }: ParagraphAnalysis
         onChange={onChange}
       />
       <div className={'animate-appear-bottom mt-14 flex justify-center'}>
-        <BaseButton onClick={() => {}}>{t('analysis')}</BaseButton>
+        <BaseButton onClick={() => onAnalysis()}>{t('analysis')}</BaseButton>
       </div>
     </div>
   );

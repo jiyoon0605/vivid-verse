@@ -21,7 +21,7 @@ export default function NavTab() {
   };
 
   const onClick = (value: NavType) => {
-    router.push(`/${locale}/${value}`);
+    router.push(`/${locale}/text/${value}`);
   };
 
   return (

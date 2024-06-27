@@ -135,7 +135,18 @@ export async function analysisParagraph(paragraph: string) {
         role: 'user',
         parts: [
           {
-            text: '주어진 글귀에 사용된 감각적 표현을 찾고 오감중 어떤 표현을 사용한 것인지 분석해줘. 반환은 JSON 형태로 해줘.\n한 문장에 여러 감각적 표현이 있으면 나눠서 출력해줘\n\n예시)\n입력\n손끝으로 느껴지는 종이의 거친 질감은 오랜 세월의 흔적을 고스란히 담고 있었다. 나는 서가 한쪽에 놓인, 바람에 살랑거리는 커튼을 지나 작은 창문 앞으로 다가갔다. 창문을 통해 들어오는 부드러운 바람은 나뭇잎이 바스락거리는 소리와 함께 기분 좋은 시원함을 전해주었다\n\n출력\n[\n  {\n    "text": "손끝으로 느껴지는 종이의 거친 질감은 오랜 세월의 흔적을 고스란히 담고 있었다.",\n    "type": "TOUCH"\n  },\n  {\n    "text": "나는 서가 한쪽에 놓인, 바람에 살랑거리는 커튼을 지나 작은 창문 앞으로 다가갔다.",\n    "type": "TEXT"\n  },\n  {\n    "text": "창문을 통해 들어오는 부드러운 바람은",\n    "type": "TOUCH"\n  },\n  {\n    "text": "나뭇잎이 바스락거리는 소리와 함께",\n    "type": "HEARING"\n  },\n  {\n    "text": "기분 좋은 시원함을 전해주었다.",\n    "type": "TOUCH"\n  }\n]',
+            text: '주어진 글귀에 사용된 감각적 표현을 찾고 오감중 어떤 표현을 사용한 것인지 분석해줘. 만약 감각을 사용한 표현이 아니라면 "TEXT" 로 명시해줘. 문장의 유실이 있어선 안돼\n한 문장에 여러 감각적 표현이 있으면 나눠서 출력해줘\n개행이 있을경우 "\\n"로 치환해줘.\nJSON.parse 로 파싱 할 수 있게 코드 캡션을 사용하지 말고 문자열로 반환해줘.\n',
+          },
+          {
+            text: '손끝으로 느껴지는 종이의 거친 질감은 오랜 세월의 흔적을 고스란히 담고 있었다. 나는 서가 한쪽에 놓인, 바람에 살랑거리는 커튼을 지나 작은 창문 앞으로 다가갔다. 창문을 통해 들어오는 부드러운 바람은 나뭇잎이 바스락거리는 소리와 함께 기분 좋은 시원함을 전해주었다',
+          },
+        ],
+      },
+      {
+        role: 'model',
+        parts: [
+          {
+            text: '[\n  {\n    "text": "손끝으로 느껴지는 종이의 거친 질감은 오랜 세월의 흔적을 고스란히 담고 있었다.",\n    "type": "TOUCH"\n  },\n  {\n    "text": "나는 서가 한쪽에 놓인, 바람에 살랑거리는 커튼을 지나 작은 창문 앞으로 다가갔다.",\n    "type": "TEXT"\n  },\n  {\n    "text": "창문을 통해 들어오는 부드러운 바람은",\n    "type": "TOUCH"\n  },\n  {\n    "text": "나뭇잎이 바스락거리는 소리와 함께",\n    "type": "HEARING"\n  },\n  {\n    "text": "기분 좋은 시원함을 전해주었다.",\n    "type": "TOUCH"\n  }\n]',
           },
         ],
       },
@@ -144,5 +155,5 @@ export async function analysisParagraph(paragraph: string) {
 
   const result = await chatSession.sendMessage(paragraph);
 
-  result.response.text();
+  return JSON.parse(result.response.text());
 }
