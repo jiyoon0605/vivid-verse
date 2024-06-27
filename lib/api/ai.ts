@@ -90,6 +90,7 @@ export async function changeSentence(sentence: string, sense: SenseResult) {
   });
 
   const result = await chatSession.sendMessage(`${sentence}, ${sense}`);
+
   return JSON.parse(result.response.text());
 }
 
@@ -122,6 +123,7 @@ export async function rechangeSentence(
   });
 
   const result = await chatSession.sendMessage('다른 표현으로 다시 변환해줘');
+
   return JSON.parse(result.response.text());
 }
 
@@ -141,5 +143,6 @@ export async function analysisParagraph(paragraph: string) {
   });
 
   const result = await chatSession.sendMessage(paragraph);
+
   result.response.text();
 }

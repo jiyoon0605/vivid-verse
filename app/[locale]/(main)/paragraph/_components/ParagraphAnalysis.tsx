@@ -1,8 +1,9 @@
 'use client';
-import CommonTextArea from '@/components/common/input/CommonTextArea';
 import { ChangeEventHandler } from 'react';
-import { BaseButton } from '@/components/common/button/BaseButton';
 import { useTranslations } from 'next-intl';
+
+import CommonTextArea from '@/components/common/input/CommonTextArea';
+import { BaseButton } from '@/components/common/button/BaseButton';
 
 interface ParagraphAnalysis {
   value: string;
@@ -19,16 +20,14 @@ export default function ParagraphAnalysis({ value, onChange }: ParagraphAnalysis
         {t('description')}
       </p>
       <CommonTextArea
-        value={value}
+        className={'h-[50dvh] animate-appear-bottom'}
         maxLength={3000}
         size={'lg'}
-        className={'h-[50dvh] animate-appear-bottom'}
+        value={value}
         onChange={onChange}
       />
       <div className={'animate-appear-bottom mt-14 flex justify-center'}>
-        <BaseButton onClick={() => {}}>
-          {t('analysis')}
-        </BaseButton>
+        <BaseButton onClick={() => {}}>{t('analysis')}</BaseButton>
       </div>
     </div>
   );

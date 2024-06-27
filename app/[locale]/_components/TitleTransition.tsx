@@ -27,7 +27,7 @@ export default function TitleTransition() {
                 flex
                 `}
       style={{
-        color: textColor
+        color: textColor,
       }}
     >
       <motion.p

@@ -1,10 +1,10 @@
 import React from 'react';
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
+import { Toaster } from 'react-hot-toast';
 
 import * as Font from '@/config/fonts';
 import Header from '@/components/common/Header';
-import { Toaster } from 'react-hot-toast';
 
 export default async function Layout({
   children,

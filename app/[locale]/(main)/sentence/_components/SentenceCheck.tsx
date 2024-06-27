@@ -1,15 +1,15 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 import { SenseResult } from '@/types';
 import { TextButton } from '@/components/common/button/TextButton';
 import ChipRadioGroup from '@/components/common/input/ChipRadioGroup';
 import { BaseButton } from '@/components/common/button/BaseButton';
 import { SENSES } from '@/lib/constant';
-import { useRouter } from 'next/navigation';
-import toast from 'react-hot-toast';
 
 interface SentenceCheck {
   sense: SenseResult;
@@ -50,6 +50,7 @@ export default function SentenceCheck({ sense, sentence }: SentenceCheck) {
   const onSubmit = () => {
     if (sentence.length <= 0) {
       toast.error(t('toast.sentenceWar'));
+
       return;
     }
     router.push(

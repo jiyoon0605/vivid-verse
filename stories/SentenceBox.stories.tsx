@@ -1,5 +1,6 @@
-import SentenceBox from '@/app/[locale]/(main)/sentence/_components/SentenceBox';
 import { Meta, type StoryObj } from '@storybook/react';
+
+import SentenceBox from '@/app/[locale]/(main)/sentence/_components/SentenceBox';
 
 const meta = {
   title: 'Sentence/SentenceBox',
@@ -9,6 +10,7 @@ const meta = {
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof SentenceBox>;
+
 export default meta;
 type Story = StoryObj<typeof meta>;
 

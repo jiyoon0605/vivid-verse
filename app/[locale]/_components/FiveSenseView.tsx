@@ -1,16 +1,17 @@
 'use client';
 
-import { useRouter, useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
-import React, { useEffect, useState } from "react";
-import { SenseResult, SentenceConvertResponse } from "@/types";
-import { changeSentence, rechangeSentence } from "@/lib/api/ai";
-import SentenceBox from "@/app/[locale]/(main)/sentence/_components/SentenceBox";
-import { Spinner } from "@nextui-org/spinner";
-import { motion } from "framer-motion";
-import { BaseButton } from "@/components/common/button/BaseButton";
-import Link from "next/link";
-import { TextButton } from "@/components/common/button/TextButton";
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import React, { useEffect, useState } from 'react';
+import { Spinner } from '@nextui-org/spinner';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+import { SenseResult, SentenceConvertResponse } from '@/types';
+import { changeSentence, rechangeSentence } from '@/lib/api/ai';
+import SentenceBox from '@/app/[locale]/(main)/sentence/_components/SentenceBox';
+import { BaseButton } from '@/components/common/button/BaseButton';
+import { TextButton } from '@/components/common/button/TextButton';
 
 export default function FiveSenseView() {
   const router = useRouter();
@@ -26,6 +27,7 @@ export default function FiveSenseView() {
   useEffect(() => {
     if (!sentence || !sense) {
       router.push('/sentence');
+
       return;
     }
     changeSentence(sentence, sense as SenseResult)
@@ -58,20 +60,20 @@ export default function FiveSenseView() {
       <div>
         {loading ? (
           <div className={'w-full h-[30dvh] flex justify-center items-center'}>
-            <Spinner label="LOADING..." size={'lg'} className={'font-bold'} />
+            <Spinner className={'font-bold'} label="LOADING..." size={'lg'} />
           </div>
         ) : (
           <>
             {result.map(([sense, sentence], idx) => (
               <motion.div
                 key={`${sense}-${retryCnt}`}
-                initial={{
-                  y: 50,
-                  opacity: 0,
-                }}
                 animate={{
                   y: 0,
                   opacity: 1,
+                }}
+                initial={{
+                  y: 50,
+                  opacity: 0,
                 }}
                 transition={{
                   duration: 0.5,
@@ -89,7 +91,7 @@ export default function FiveSenseView() {
           {t('reRequest')}
         </BaseButton>
       </div>
-      <Link href={'/sentence'} className={'mt-8 flex justify-center'}>
+      <Link className={'mt-8 flex justify-center'} href={'/sentence'}>
         <TextButton onClick={() => {}}>{t('gotoBack')}</TextButton>
       </Link>
     </div>

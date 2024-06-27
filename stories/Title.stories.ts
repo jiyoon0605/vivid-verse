@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import TitleTransition from '@/app/[locale]/_components/TitleTransition';
 
 const meta = {

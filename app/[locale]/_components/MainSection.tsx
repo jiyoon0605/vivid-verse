@@ -1,11 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import ExampleSlider from '@/app/[locale]/_components/ExampleSlider';
 import { BaseButton } from '@/components/common/button/BaseButton';
 import TitleTransition from '@/app/[locale]/_components/TitleTransition';
-import { useTranslations } from 'next-intl';
 
 export default function MainSection() {
   const t = useTranslations();

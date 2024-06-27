@@ -23,11 +23,9 @@ export default function CommonTextArea({ onChange, ...props }: TextInputProps) {
             'border-1',
             'border-default-300',
             'text-text-' + (props.isDisabled ? 200 : 100),
-            'min-h-full'
+            'min-h-full',
           ],
-          input: [
-            'flex-1'
-          ]
+          input: ['flex-1'],
         }}
         endContent={
           <>
