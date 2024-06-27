@@ -25,6 +25,7 @@ export interface TextInputProps {
   isLoading?: boolean;
   size?: Size;
   maxLength?: number;
+  className?: string;
 }
 
 export interface DefaultPageProps {

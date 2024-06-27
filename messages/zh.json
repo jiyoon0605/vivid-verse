@@ -5,6 +5,9 @@
     "sentence": "句子",
     "paragraph": "段落"
   },
+  "toast": {
+    "sentenceWar": "请输入句子。"
+  },
   "common": {
     "yes": "是的",
     "no": "不是"
@@ -52,5 +55,10 @@
       "reRequest": "重新转换",
       "gotoBack": "转换为另一句话"
     }
+  },
+  "paragraph": {
+    "title": "转换文本中使用的各种感官表达。",
+    "description": "AI会分析并转换您写作中使用的感官表达。",
+    "analysis": "分析"
   }
 }

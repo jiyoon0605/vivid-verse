@@ -5,6 +5,9 @@
     "sentence": "文章",
     "paragraph": "段落"
   },
+  "toast": {
+    "sentenceWar": "文を入力してください。"
+  },
   "common": {
     "Yes": "はい",
     "No": "いいえ"
@@ -52,5 +55,10 @@
       "reRequest": "再変換",
       "gotoBack": "別の文に変換する"
     }
+  },
+  "paragraph": {
+    "title": "文章で使用されているさまざまな感覚的表現を変換してください。",
+    "description": "AIがあなたの書いた文章に使用されている感覚的表現を分析し、変換します。",
+    "analysis": "分析"
   }
 }

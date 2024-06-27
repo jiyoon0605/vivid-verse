@@ -9,10 +9,11 @@ import ChipRadioGroup from '@/components/common/input/ChipRadioGroup';
 import { BaseButton } from '@/components/common/button/BaseButton';
 import { SENSES } from '@/lib/constant';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 interface SentenceCheck {
   sense: SenseResult;
-  sentence: string
+  sentence: string;
 }
 
 export default function SentenceCheck({ sense, sentence }: SentenceCheck) {
@@ -47,7 +48,13 @@ export default function SentenceCheck({ sense, sentence }: SentenceCheck) {
   };
 
   const onSubmit = () => {
-    router.push(`/sentence/result?sentence=${sentence}&sense=${selectedSense.toUpperCase() ?? sense}`);
+    if (sentence.length <= 0) {
+      toast.error(t('toast.sentenceWar'));
+      return;
+    }
+    router.push(
+      `/sentence/result?sentence=${sentence}&sense=${selectedSense.toUpperCase() ?? sense}`,
+    );
   };
 
   return (

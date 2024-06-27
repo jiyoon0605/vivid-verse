@@ -5,6 +5,9 @@
     "sentence": "sentence",
     "paragraph": "paragraph"
   },
+  "toast": {
+    "sentenceWar": "Please enter a sentence."
+  },
   "common": {
     "yes": "Yes",
     "no": "No"
@@ -52,5 +55,10 @@
       "reRequest": "convert again",
       "gotoBack": "Convert to another sentence"
     }
+  },
+  "paragraph": {
+    "title": "Convert various sensory expressions used in the text.",
+    "description": "The AI analyzes and transforms the sensory expressions used in your writing.",
+    "analysis": "Analysis"
   }
 }

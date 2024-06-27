@@ -11,6 +11,7 @@ import TasteIcon from '@/public/icon/taste.svg';
 import TouchIcon from '@/public/icon/touch.svg';
 import CopyIcon from '@/public/icon/copy.svg';
 import { Button } from '@nextui-org/button';
+import toast from "react-hot-toast";
 
 interface SentenceBoxProps {
   sense: SenseResult;
@@ -27,7 +28,9 @@ const iconMap: { [key in string]: string } = {
 
 export default function SentenceBox({ sense, sentence }: SentenceBoxProps) {
   const onCopy = () => {
-    navigator.clipboard.writeText(sentence);
+    window.navigator.clipboard.writeText(sentence).then(() => {
+      toast.success('copy complete')
+    });
   };
   return (
     <div
@@ -49,8 +52,8 @@ export default function SentenceBox({ sense, sentence }: SentenceBoxProps) {
             <Image alt={sense} height={50} src={iconMap[sense]} width={30} />
             <p>{sentence}</p>
           </div>
-          <Tooltip className={'ml-5'} content={'copy to clipboard'} onClick={onCopy}>
-            <Button size={'sm'} className={'bg-transparent'}>
+          <Tooltip className={'ml-5'} content={'copy to clipboard'}>
+            <Button size={'sm'} className={'bg-transparent'} onClick={onCopy}>
               <Image alt={'copy'} height={30} src={CopyIcon.src} width={30} />
             </Button>
           </Tooltip>

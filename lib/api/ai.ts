@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from '@google/generative-ai';
 
-import { SenseResult, SentenceConvertResponse } from "@/types";
+import { SenseResult, SentenceConvertResponse } from '@/types';
 
 const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey as string);
@@ -93,7 +93,11 @@ export async function changeSentence(sentence: string, sense: SenseResult) {
   return JSON.parse(result.response.text());
 }
 
-export async function rechangeSentence(sentence: string, sense: SenseResult, response: SentenceConvertResponse) {
+export async function rechangeSentence(
+  sentence: string,
+  sense: SenseResult,
+  response: SentenceConvertResponse,
+) {
   const chatSession = model.startChat({
     generationConfig,
     history: [
@@ -117,6 +121,25 @@ export async function rechangeSentence(sentence: string, sense: SenseResult, res
     ],
   });
 
-  const result = await chatSession.sendMessage("다른 표현으로 다시 변환해줘");
+  const result = await chatSession.sendMessage('다른 표현으로 다시 변환해줘');
   return JSON.parse(result.response.text());
+}
+
+export async function analysisParagraph(paragraph: string) {
+  const chatSession = model.startChat({
+    generationConfig,
+    history: [
+      {
+        role: 'user',
+        parts: [
+          {
+            text: '주어진 글귀에 사용된 감각적 표현을 찾고 오감중 어떤 표현을 사용한 것인지 분석해줘. 반환은 JSON 형태로 해줘.\n한 문장에 여러 감각적 표현이 있으면 나눠서 출력해줘\n\n예시)\n입력\n손끝으로 느껴지는 종이의 거친 질감은 오랜 세월의 흔적을 고스란히 담고 있었다. 나는 서가 한쪽에 놓인, 바람에 살랑거리는 커튼을 지나 작은 창문 앞으로 다가갔다. 창문을 통해 들어오는 부드러운 바람은 나뭇잎이 바스락거리는 소리와 함께 기분 좋은 시원함을 전해주었다\n\n출력\n[\n  {\n    "text": "손끝으로 느껴지는 종이의 거친 질감은 오랜 세월의 흔적을 고스란히 담고 있었다.",\n    "type": "TOUCH"\n  },\n  {\n    "text": "나는 서가 한쪽에 놓인, 바람에 살랑거리는 커튼을 지나 작은 창문 앞으로 다가갔다.",\n    "type": "TEXT"\n  },\n  {\n    "text": "창문을 통해 들어오는 부드러운 바람은",\n    "type": "TOUCH"\n  },\n  {\n    "text": "나뭇잎이 바스락거리는 소리와 함께",\n    "type": "HEARING"\n  },\n  {\n    "text": "기분 좋은 시원함을 전해주었다.",\n    "type": "TOUCH"\n  }\n]',
+          },
+        ],
+      },
+    ],
+  });
+
+  const result = await chatSession.sendMessage(paragraph);
+  result.response.text();
 }

@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 
 import * as Font from '@/config/fonts';
 import Header from '@/components/common/Header';
+import { Toaster } from 'react-hot-toast';
 
 export default async function Layout({
   children,
@@ -32,6 +33,9 @@ export default async function Layout({
       <div className={getFontByLang()}>
         <Header />
         {children}
+      </div>
+      <div>
+        <Toaster />
       </div>
     </NextIntlClientProvider>
   );
