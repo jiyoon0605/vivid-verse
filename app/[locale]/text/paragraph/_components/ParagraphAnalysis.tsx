@@ -1,11 +1,13 @@
 'use client';
-import { ChangeEventHandler } from 'react';
+import { ChangeEventHandler, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import CommonTextArea from '@/components/common/input/CommonTextArea';
 import { BaseButton } from '@/components/common/button/BaseButton';
 import { analysisParagraph } from '@/lib/api/ai';
 import useParagraph from '@/store/useParagraph';
+import { Spinner } from '@nextui-org/spinner';
+import { useRouter } from 'next/navigation';
 
 interface ParagraphAnalysis {
   value: string;
@@ -14,12 +16,19 @@ interface ParagraphAnalysis {
 
 export default function ParagraphAnalysis({ value, onChange }: ParagraphAnalysis) {
   const t = useTranslations('paragraph');
-  const {result, setResult } = useParagraph();
+  const { setResult } = useParagraph();
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const onAnalysis = async () => {
-    analysisParagraph(value).then((res) => {
-      console.log(res);
-    })
+    setLoading(true);
+    analysisParagraph(value)
+      .then((res) => {
+        console.log(res);
+        setResult(res);
+        router.push('/text/paragraph/result');
+      })
+      .finally(() => setLoading(false));
   };
   return (
     <div>
@@ -35,7 +44,11 @@ export default function ParagraphAnalysis({ value, onChange }: ParagraphAnalysis
         onChange={onChange}
       />
       <div className={'animate-appear-bottom mt-14 flex justify-center'}>
-        <BaseButton onClick={() => onAnalysis()}>{t('analysis')}</BaseButton>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <BaseButton onClick={() => onAnalysis()}>{t('analysis')}</BaseButton>
+        )}
       </div>
     </div>
   );

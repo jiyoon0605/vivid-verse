@@ -1,6 +1,7 @@
-
-
+'use client';
+import useParagraph from '@/store/useParagraph';
 
 export default function Page() {
-  return <div></div>
+  const { result, setResult } = useParagraph();
+  return <div>{JSON.stringify(result)}</div>;
 }

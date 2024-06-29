@@ -6,9 +6,14 @@ interface ResultType {
   type: SenseResult;
 }
 
-const useParagraph = create<{ result: ResultType[], setResult: Function }>((set) => ({
+interface ParagraphStore {
+  result: ResultType [],
+  setResult: Function
+}
+
+const useParagraph = create<ParagraphStore>((set) => ({
   result: [],
-  setResult: (result: ResultType[]) => () => ({ result }),
+  setResult: (result: ResultType[]) => set((state) => ({ result })),
 }));
 
 export default useParagraph;
