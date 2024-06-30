@@ -7,6 +7,8 @@ import { useParams, usePathname, useRouter, useSelectedLayoutSegment } from 'nex
 import Link from 'next/link';
 
 import { Locale } from '@/types';
+import Image from "next/image";
+import Logo from '@/public/logo.png';
 
 const Languages = [
   {
@@ -56,7 +58,7 @@ export default function Header() {
       <div>
         <nav className={'flex gap-4 items-center'}>
           <Link className={'mr-4'} href={'/'}>
-            vivid verse
+            <Image src={Logo.src} alt={'Vivid verse'} width={50} height={50}/>
           </Link>
           <Link href={'/text/sentence'}>
             <svg
