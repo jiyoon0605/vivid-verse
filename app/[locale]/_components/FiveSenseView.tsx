@@ -13,7 +13,11 @@ import { BaseButton } from '@/components/common/button/BaseButton';
 import { TextButton } from '@/components/common/button/TextButton';
 import SentenceBox from '@/app/[locale]/text/sentence/_components/SentenceBox';
 
-export default function FiveSenseView() {
+interface FiveSenseViewProps {
+  paragraphConvertor?: boolean;
+}
+
+export default function FiveSenseView({ paragraphConvertor = false }: FiveSenseViewProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const t = useTranslations('sentence.result');
@@ -30,13 +34,15 @@ export default function FiveSenseView() {
 
       return;
     }
+    setLoading(true);
+
     changeSentence(sentence, sense as SenseResult)
       .then((res: SentenceConvertResponse) => {
         setResponse(res);
         setResult(Object.entries(res).filter(([key]) => key.toUpperCase() !== sense.toUpperCase()));
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [sentence, sense]);
 
   const onReRequest = () => {
     if (!sentence || !sense || !response) {
@@ -94,9 +100,11 @@ export default function FiveSenseView() {
           </BaseButton>
         </div>
       )}
-      <Link className={'mt-8 flex justify-center'} href={'/text/sentence'}>
-        <TextButton onClick={() => {}}>{t('gotoBack')}</TextButton>
-      </Link>
+      {!paragraphConvertor &&
+        <Link className={'mt-8 flex justify-center'} href={'/text/sentence'}>
+          <TextButton onClick={() => {}}>{t('gotoBack')}</TextButton>
+        </Link>
+      }
     </div>
   );
 }

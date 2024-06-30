@@ -12,10 +12,14 @@ import SmellIcon from '@/public/icon/smell.svg';
 import TasteIcon from '@/public/icon/taste.svg';
 import TouchIcon from '@/public/icon/touch.svg';
 import CopyIcon from '@/public/icon/copy.svg';
+import SwapIcon from '@/public/icon/swap.svg';
+import { useSearchParams } from "next/navigation";
 
 interface SentenceBoxProps {
   sense: SenseResult;
   sentence: string;
+  canSwap?: boolean;
+  isOrigin?: boolean;
 }
 
 const iconMap: { [key in string]: string } = {
@@ -26,11 +30,27 @@ const iconMap: { [key in string]: string } = {
   TOUCH: TouchIcon.src,
 };
 
-export default function SentenceBox({ sense, sentence }: SentenceBoxProps) {
+export default function SentenceBox({
+  sense,
+  sentence,
+  canSwap = false,
+  isOrigin = false,
+}: SentenceBoxProps) {
+  const searchParams = useSearchParams();
+  const idx = searchParams.get('idx');
   const onCopy = () => {
     window.navigator.clipboard.writeText(sentence).then(() => {
       toast.success('copy complete');
     });
+  };
+
+  const onSwapText = () => {
+    const swapChannel = new BroadcastChannel("SWAP_TEXT");
+    swapChannel.postMessage({
+      sense,
+      sentence,
+      idx
+    })
   };
 
   return (
@@ -53,11 +73,18 @@ export default function SentenceBox({ sense, sentence }: SentenceBoxProps) {
             <Image alt={sense} height={50} src={iconMap[sense]} width={30} />
             <p>{sentence}</p>
           </div>
-          <Tooltip className={'ml-5'} content={'copy to clipboard'}>
-            <Button className={'bg-transparent'} size={'sm'} onClick={onCopy}>
-              <Image alt={'copy'} height={30} src={CopyIcon.src} width={30} />
-            </Button>
-          </Tooltip>
+          <div className={'flex items-center ml-5'}>
+            <Tooltip content={'copy to clipboard'}>
+              <Button className={'bg-transparent min-w-1'} size={'sm'} onClick={onCopy}>
+                <Image alt={'copy'} height={30} src={CopyIcon.src} width={30} />
+              </Button>
+            </Tooltip>
+            {!isOrigin && (
+              <Button className={'bg-transparent min-w-1'} size={'sm'} onClick={onSwapText}>
+                <Image alt={'copy'} height={30} src={SwapIcon.src} width={30} />
+              </Button>
+            )}
+          </div>
         </>
       )}
     </div>

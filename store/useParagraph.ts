@@ -2,9 +2,9 @@ import { create } from 'zustand';
 
 import { SenseResult } from '@/types';
 
-interface ResultType {
+export interface ResultType {
   text: string;
-  type: SenseResult;
+  type: SenseResult | 'TEXT';
 }
 
 interface ParagraphStore {

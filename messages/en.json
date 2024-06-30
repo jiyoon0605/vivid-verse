@@ -9,8 +9,9 @@
     "sentenceWar": "Please enter a sentence."
   },
   "common": {
-    "yes": "Yes",
-    "no": "No"
+    "yes": "yes",
+    "no": "no",
+    "copy": "copy"
   },
   "main": {
     "slogan": "Transforming one sense into another,<br/> a new way to enrich and diversify your writing.",

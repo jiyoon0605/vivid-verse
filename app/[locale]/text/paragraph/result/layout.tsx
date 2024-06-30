@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export default function Layout({ children, result }: { children: ReactNode; result: ReactNode }) {
   return (
-    <div>
+    <div className={'flex max-md:flex-col gap-4 w-full h-full'}>
       {children}
       {result}
     </div>
