@@ -4,9 +4,9 @@
 import { Select, SelectItem } from '@nextui-org/select';
 import React, { useEffect } from 'react';
 import { useParams, usePathname, useRouter, useSelectedLayoutSegment } from 'next/navigation';
+import Link from 'next/link';
 
 import { Locale } from '@/types';
-import Link from 'next/link';
 
 const Languages = [
   {
@@ -58,7 +58,7 @@ export default function Header() {
     >
       <div>
         <nav className={'flex gap-4 items-center'}>
-          <Link href={'/'} className={'mr-4'}>
+          <Link className={'mr-4'} href={'/'}>
             vivid verse
           </Link>
           <Link href={'/text/sentence'}>
@@ -78,37 +78,37 @@ export default function Header() {
               />
             </svg>
           </Link>
-          <Link href={'/image'}>
-            <svg
-              fill="none"
-              height="25px"
-              viewBox="0 0 24 24"
-              width="25px"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8 10L12 3L16 10H8Z"
-                stroke={`${segment === 'image' ? '#3B3C3D' : '#CCCBC8'}`}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-              />
-              <path
-                d="M10 17.5C10 19.433 8.433 21 6.5 21C4.567 21 3 19.433 3 17.5C3 15.567 4.567 14 6.5 14C8.433 14 10 15.567 10 17.5Z"
-                stroke={`${segment === 'image' ? '#3B3C3D' : '#CCCBC8'}`}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-              />
-              <path
-                d="M14 14H21V21H14V14Z"
-                stroke={`${segment === 'image' ? '#3B3C3D' : '#CCCBC8'}`}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-              />
-            </svg>
-          </Link>
+          {/*<Link href={'/image'}>*/}
+          {/*  <svg*/}
+          {/*    fill="none"*/}
+          {/*    height="25px"*/}
+          {/*    viewBox="0 0 24 24"*/}
+          {/*    width="25px"*/}
+          {/*    xmlns="http://www.w3.org/2000/svg"*/}
+          {/*  >*/}
+          {/*    <path*/}
+          {/*      d="M8 10L12 3L16 10H8Z"*/}
+          {/*      stroke={`${segment === 'image' ? '#3B3C3D' : '#CCCBC8'}`}*/}
+          {/*      strokeLinecap="round"*/}
+          {/*      strokeLinejoin="round"*/}
+          {/*      strokeWidth="2"*/}
+          {/*    />*/}
+          {/*    <path*/}
+          {/*      d="M10 17.5C10 19.433 8.433 21 6.5 21C4.567 21 3 19.433 3 17.5C3 15.567 4.567 14 6.5 14C8.433 14 10 15.567 10 17.5Z"*/}
+          {/*      stroke={`${segment === 'image' ? '#3B3C3D' : '#CCCBC8'}`}*/}
+          {/*      strokeLinecap="round"*/}
+          {/*      strokeLinejoin="round"*/}
+          {/*      strokeWidth="2"*/}
+          {/*    />*/}
+          {/*    <path*/}
+          {/*      d="M14 14H21V21H14V14Z"*/}
+          {/*      stroke={`${segment === 'image' ? '#3B3C3D' : '#CCCBC8'}`}*/}
+          {/*      strokeLinecap="round"*/}
+          {/*      strokeLinejoin="round"*/}
+          {/*      strokeWidth="2"*/}
+          {/*    />*/}
+          {/*  </svg>*/}
+          {/*</Link>*/}
         </nav>
       </div>
       <Select

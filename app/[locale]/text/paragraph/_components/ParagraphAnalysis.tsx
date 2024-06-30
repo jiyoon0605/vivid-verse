@@ -1,13 +1,13 @@
 'use client';
 import { ChangeEventHandler, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Spinner } from '@nextui-org/spinner';
+import { useRouter } from 'next/navigation';
 
 import CommonTextArea from '@/components/common/input/CommonTextArea';
 import { BaseButton } from '@/components/common/button/BaseButton';
 import { analysisParagraph } from '@/lib/api/ai';
 import useParagraph from '@/store/useParagraph';
-import { Spinner } from '@nextui-org/spinner';
-import { useRouter } from 'next/navigation';
 
 interface ParagraphAnalysis {
   value: string;
@@ -30,6 +30,7 @@ export default function ParagraphAnalysis({ value, onChange }: ParagraphAnalysis
       })
       .finally(() => setLoading(false));
   };
+
   return (
     <div>
       <h1 className={'mt-12 font-bold text-lg animate-appear-right'}>{t('title')}</h1>

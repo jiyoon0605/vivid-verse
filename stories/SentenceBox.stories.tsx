@@ -1,4 +1,5 @@
 import { Meta, type StoryObj } from '@storybook/react';
+
 import SentenceBox from '@/app/[locale]/text/sentence/_components/SentenceBox';
 
 const meta = {

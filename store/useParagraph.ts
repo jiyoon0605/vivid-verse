@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+
 import { SenseResult } from '@/types';
 
 interface ResultType {
@@ -7,8 +8,8 @@ interface ResultType {
 }
 
 interface ParagraphStore {
-  result: ResultType [],
-  setResult: Function
+  result: ResultType[];
+  setResult: Function;
 }
 
 const useParagraph = create<ParagraphStore>((set) => ({

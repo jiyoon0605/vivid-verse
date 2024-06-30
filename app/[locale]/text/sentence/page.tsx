@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
+import React from 'react';
 
 import { DefaultPageProps } from '@/types';
-import React from 'react';
 import SentenceForm from '@/app/[locale]/text/sentence/_components/SentenceForm';
 
 export default async function Page({ params: { locale } }: DefaultPageProps) {
