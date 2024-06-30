@@ -1,10 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 export default function TitleTransition() {
-  const t = useTranslations();
   const [textColor, setTextColor] = useState<string>('#71C4EF');
 
   const textAnimate = {

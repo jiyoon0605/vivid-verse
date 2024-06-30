@@ -24,7 +24,6 @@ export default function ParagraphAnalysis({ value, onChange }: ParagraphAnalysis
     setLoading(true);
     analysisParagraph(value)
       .then((res) => {
-        console.log(res);
         setResult(res);
         router.push('/text/paragraph/result');
       })

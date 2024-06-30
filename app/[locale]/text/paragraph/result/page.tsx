@@ -1,11 +1,12 @@
 'use client';
-import useParagraph, { ResultType } from "@/store/useParagraph";
 import Link from 'next/link';
-import { useEffect, useRef } from "react";
-import { BaseButton } from '@/components/common/button/BaseButton';
+import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import toast from 'react-hot-toast';
 import { useRouter, useSearchParams } from 'next/navigation';
+
+import { BaseButton } from '@/components/common/button/BaseButton';
+import useParagraph, { ResultType } from '@/store/useParagraph';
 
 export default function Page() {
   const { result, setResult } = useParagraph();
@@ -18,11 +19,13 @@ export default function Page() {
   useEffect(() => {
     if (!result) {
       router.push('/text/paragraph');
+
       return;
     }
     text.current = result;
 
     const swapChannel = new BroadcastChannel('SWAP_TEXT');
+
     swapChannel.onmessage = ({ data }) => {
       const newResult = (text.current ?? []).map((it, idx) => {
         if (idx == data.idx) {
@@ -31,8 +34,10 @@ export default function Page() {
             type: data.sense,
           };
         }
+
         return it;
       });
+
       text.current = newResult;
       setResult(newResult);
     };
@@ -42,6 +47,7 @@ export default function Page() {
 
   const onCopy = () => {
     const text = result.map((it) => it.text).join(' ');
+
     window.navigator.clipboard.writeText(text).then(() => {
       toast.success('copy complete');
     });
@@ -52,11 +58,14 @@ export default function Page() {
       <div className={'flex-1'}>
         {result.map(({ text, type }, idx) =>
           type === 'TEXT' ? (
-            <span className={'p-1'}>{text}</span>
+            <span key={`${idx}-${type}`} className={'p-1'}>
+              {text}
+            </span>
           ) : (
             <Link
-              href={`/text/paragraph/result?sentence=${text}&sense=${type}&idx=${idx}`}
+              key={`${idx}-${type}`}
               className={'inline underline underline-offset-2 text-secondary-200 p-1'}
+              href={`/text/paragraph/result?sentence=${text}&sense=${type}&idx=${idx}`}
             >
               {text}
             </Link>
@@ -64,9 +73,7 @@ export default function Page() {
         )}
       </div>
       <div className={'w-full flex justify-center mt-10'}>
-        <BaseButton onClick={onCopy}>
-          {t('copy')}
-        </BaseButton>
+        <BaseButton onClick={onCopy}>{t('copy')}</BaseButton>
       </div>
     </div>
   );

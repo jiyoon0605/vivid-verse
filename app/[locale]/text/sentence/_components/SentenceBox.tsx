@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Tooltip } from '@nextui-org/tooltip';
 import { Button } from '@nextui-org/button';
 import toast from 'react-hot-toast';
+import { useSearchParams } from 'next/navigation';
 
 import { SenseResult } from '@/types';
 import VisionIcon from '@/public/icon/vision.svg';
@@ -13,7 +14,6 @@ import TasteIcon from '@/public/icon/taste.svg';
 import TouchIcon from '@/public/icon/touch.svg';
 import CopyIcon from '@/public/icon/copy.svg';
 import SwapIcon from '@/public/icon/swap.svg';
-import { useSearchParams } from "next/navigation";
 
 interface SentenceBoxProps {
   sense: SenseResult;
@@ -30,12 +30,7 @@ const iconMap: { [key in string]: string } = {
   TOUCH: TouchIcon.src,
 };
 
-export default function SentenceBox({
-  sense,
-  sentence,
-  canSwap = false,
-  isOrigin = false,
-}: SentenceBoxProps) {
+export default function SentenceBox({ sense, sentence, isOrigin = false }: SentenceBoxProps) {
   const searchParams = useSearchParams();
   const idx = searchParams.get('idx');
   const onCopy = () => {
@@ -45,12 +40,13 @@ export default function SentenceBox({
   };
 
   const onSwapText = () => {
-    const swapChannel = new BroadcastChannel("SWAP_TEXT");
+    const swapChannel = new BroadcastChannel('SWAP_TEXT');
+
     swapChannel.postMessage({
       sense,
       sentence,
-      idx
-    })
+      idx,
+    });
   };
 
   return (

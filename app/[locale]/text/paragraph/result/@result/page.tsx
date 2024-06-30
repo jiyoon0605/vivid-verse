@@ -1,8 +1,8 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 import FiveSenseView from '@/app/[locale]/_components/FiveSenseView';
-import { useEffect, useState } from 'react';
 
 export default function Page() {
   const [hasSelected, setHasSelected] = useState<boolean>(false);

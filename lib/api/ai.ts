@@ -159,12 +159,9 @@ export async function analysisParagraph(paragraph: string) {
 }
 
 const parseJson = (response: string) => {
-  console.log(response);
-try {
-  return JSON.parse(response.replaceAll('```json', '').replaceAll('```', ''));
-
-} catch (e) {
-  return JSON.parse(`[${response.replaceAll('```json', '').replaceAll('```', '')}]`);
-
-}
+  try {
+    return JSON.parse(response.replaceAll('```json', '').replaceAll('```', ''));
+  } catch (e) {
+    return JSON.parse(`[${response.replaceAll('```json', '').replaceAll('```', '')}]`);
+  }
 };

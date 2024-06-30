@@ -52,7 +52,6 @@ export default function FiveSenseView({ paragraphConvertor = false }: FiveSenseV
     setLoading(true);
     rechangeSentence(sentence, sense as SenseResult, response)
       .then((res: SentenceConvertResponse) => {
-        console.log(res);
         setResponse(res);
         setResult(Object.entries(res).filter(([key]) => key.toUpperCase() !== sense.toUpperCase()));
       })
@@ -100,11 +99,11 @@ export default function FiveSenseView({ paragraphConvertor = false }: FiveSenseV
           </BaseButton>
         </div>
       )}
-      {!paragraphConvertor &&
+      {!paragraphConvertor && (
         <Link className={'mt-8 flex justify-center'} href={'/text/sentence'}>
           <TextButton onClick={() => {}}>{t('gotoBack')}</TextButton>
         </Link>
-      }
+      )}
     </div>
   );
 }

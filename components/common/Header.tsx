@@ -2,7 +2,7 @@
 
 // @ts-ignore
 import { Select, SelectItem } from '@nextui-org/select';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams, usePathname, useRouter, useSelectedLayoutSegment } from 'next/navigation';
 import Link from 'next/link';
 
@@ -33,9 +33,6 @@ export default function Header() {
   const pathname = usePathname();
   const segment = useSelectedLayoutSegment();
 
-  useEffect(() => {
-    console.log(segment);
-  }, [segment]);
   const onChangeLanguage = (newLang: Locale) => {
     router.push(`/${newLang}${pathname.slice(3)}`);
   };

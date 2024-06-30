@@ -14,7 +14,7 @@ interface ParagraphStore {
 
 const useParagraph = create<ParagraphStore>((set) => ({
   result: [],
-  setResult: (result: ResultType[]) => set((state) => ({ result })),
+  setResult: (result: ResultType[]) => set(() => ({ result })),
 }));
 
 export default useParagraph;
