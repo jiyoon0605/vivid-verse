@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 
 import * as Font from '@/config/fonts';
 import Header from '@/components/common/Header';
+import Footer from '@/components/common/Footer';
 
 export default async function Layout({
   children,
@@ -33,6 +34,7 @@ export default async function Layout({
       <div className={getFontByLang()}>
         <Header />
         {children}
+        <Footer />
       </div>
       <div>
         <Toaster />

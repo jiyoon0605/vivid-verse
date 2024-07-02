@@ -48,12 +48,14 @@ export default function ExampleSlider() {
         const nextIdx = (prevIdx + 1) % exampleTexts.length;
 
         const target = container.querySelector(`#example_text_${nextIdx}`);
-
-        target?.scrollIntoView({ behavior: 'smooth' });
+        
+        target?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
         if (nextIdx + 1 >= exampleTexts.length) {
           setTimeout(() => {
-            container.querySelector(`#example_text_0`)?.scrollIntoView({ behavior: 'auto' });
+            container
+              .querySelector(`#example_text_0`)
+              ?.scrollIntoView({ behavior: 'auto', block: 'nearest' });
           }, 1000);
 
           return 0;
