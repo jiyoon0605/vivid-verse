@@ -19,7 +19,6 @@ interface SentenceBoxProps {
   sense: SenseResult;
   sentence: string;
   canSwap?: boolean;
-  isOrigin?: boolean;
 }
 
 const iconMap: { [key in string]: string } = {
@@ -30,7 +29,7 @@ const iconMap: { [key in string]: string } = {
   TOUCH: TouchIcon.src,
 };
 
-export default function SentenceBox({ sense, sentence, isOrigin = false }: SentenceBoxProps) {
+export default function SentenceBox({ sense, sentence, canSwap = false }: SentenceBoxProps) {
   const searchParams = useSearchParams();
   const idx = searchParams.get('idx');
   const onCopy = () => {
@@ -75,7 +74,7 @@ export default function SentenceBox({ sense, sentence, isOrigin = false }: Sente
                 <Image alt={'copy'} height={30} src={CopyIcon.src} width={30} />
               </Button>
             </Tooltip>
-            {!isOrigin && (
+            {canSwap && (
               <Button className={'bg-transparent min-w-1'} size={'sm'} onClick={onSwapText}>
                 <Image alt={'copy'} height={30} src={SwapIcon.src} width={30} />
               </Button>

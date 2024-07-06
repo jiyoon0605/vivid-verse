@@ -15,6 +15,7 @@
 
   main {
     padding: 0 12rem;
+    height: 100dvh;
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {

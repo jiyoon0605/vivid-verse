@@ -82,7 +82,7 @@ export async function changeSentence(sentence: string, sense: SenseResult) {
         role: 'user',
         parts: [
           {
-            text: '"문장, 감각" 형태로 입력이 들어오면 문장의 의미, 역할, 구조가 달라지지 않게 다른 오감을 사용한 표현으로 변경해줘. 변경 불가능하면  문자열 "FAIL"을 반환하고, JSON 형식으로 반환해\n\n출력 형식\n{\n  VISION,\n  SMELL,\n  HEARING,\n  TOUCH,\n  TASTE,\n}',
+            text: '"문장, 감각" 형태로 입력이 들어오면 문장의 의미와 역할이 달라지지 않게 다른 오감을 사용한 표현으로 변경해줘. 다른 문장과 함께 사용해야하기 때문에 구조 자체에 변형이 있어선 안돼. 변경 불가능하면  문자열 "FAIL"을 반환하고, JSON 형식으로 반환해\n\n출력 형식\n{\n  VISION,\n  SMELL,\n  HEARING,\n  TOUCH,\n  TASTE,\n}',
           },
         ],
       },
@@ -106,7 +106,7 @@ export async function rechangeSentence(
         role: 'user',
         parts: [
           {
-            text: '"문장, 감각" 형태로 입력이 들어오면 문장의 의미가 달라지지 않게 다른 오감을 사용한 표현으로 변경해줘. 변경 불가능하면  문자열 "FAIL"을 반환하고, JSON 형식으로 반환해\n\n출력 형식\n{\n  VISION,\n  SMELL,\n  HEARING,\n  TOUCH,\n  TASTE,\n}',
+            text: '"문장, 감각" 형태로 입력이 들어오면 문장의 의미와 역할이 달라지지 않게 다른 오감을 사용한 표현으로 변경해줘. 다른 문장과 함께 사용해야하기 때문에 구조 자체에 변형이 있어선 안돼. 변경 불가능하면  문자열 "FAIL"을 반환하고, JSON 형식으로 반환해\n\n출력 형식\n{\n  VISION,\n  SMELL,\n  HEARING,\n  TOUCH,\n  TASTE,\n}',
           },
           { text: `${sentence}, ${sense}` },
         ],
