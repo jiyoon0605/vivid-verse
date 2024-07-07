@@ -4,6 +4,7 @@ import React from 'react';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+
 import Logo from '@/public/logo.png';
 import LanguageSelector from '@/components/common/LanguageSelector';
 

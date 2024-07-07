@@ -61,7 +61,13 @@ export default function FiveSenseView({ paragraphConvertor = false }: FiveSenseV
   return (
     <div>
       <p className={'text-text-200 font-bold text-xl'}>{t('original')}</p>
-      {sense && <SentenceBox sense={sense as SenseResult} sentence={sentence as string} canSwap={paragraphConvertor}/>}
+      {sense && (
+        <SentenceBox
+          canSwap={paragraphConvertor}
+          sense={sense as SenseResult}
+          sentence={sentence as string}
+        />
+      )}
       <p className={'text-text-200 font-bold text-xl mt-10'}>{t('changed')}</p>
       <div>
         {loading ? (
@@ -86,7 +92,11 @@ export default function FiveSenseView({ paragraphConvertor = false }: FiveSenseV
                   delay: 0.3 * idx,
                 }}
               >
-                <SentenceBox sense={sense as SenseResult} sentence={sentence} canSwap={paragraphConvertor}/>
+                <SentenceBox
+                  canSwap={paragraphConvertor}
+                  sense={sense as SenseResult}
+                  sentence={sentence}
+                />
               </motion.div>
             ))}
           </>

@@ -1,9 +1,10 @@
 'use client';
 
 import { useParams, usePathname, useRouter, useSelectedLayoutSegment } from 'next/navigation';
-import { Locale } from '@/types';
 import { Select, SelectItem } from '@nextui-org/select';
 import React from 'react';
+
+import { Locale } from '@/types';
 
 const Languages = [
   {
@@ -33,6 +34,7 @@ export default function LanguageSelector() {
   const onChangeLanguage = (newLang: Locale) => {
     router.push(`/${newLang}${pathname.slice(3)}`);
   };
+
   return (
     <Select
       isRequired

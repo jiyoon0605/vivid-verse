@@ -48,7 +48,7 @@ export default function ExampleSlider() {
         const nextIdx = (prevIdx + 1) % exampleTexts.length;
 
         const target = container.querySelector(`#example_text_${nextIdx}`);
-        
+
         target?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
         if (nextIdx + 1 >= exampleTexts.length) {

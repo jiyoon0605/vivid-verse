@@ -1,9 +1,10 @@
 import '@/styles/globals.css';
 import { Metadata, Viewport } from 'next';
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 import { Providers } from './providers';
-import { Analytics } from '@vercel/analytics/react';
+
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
