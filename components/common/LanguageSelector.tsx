@@ -45,6 +45,10 @@ export default function LanguageSelector() {
         font-bold
         [$>.*::after]:hidden
       `}
+      classNames={{
+        mainWrapper: 'bg-transparent',
+        trigger: 'bg-transparent',
+      }}
       color={'default'}
       defaultSelectedKeys={[locale]}
       disabledKeys={[locale]}
