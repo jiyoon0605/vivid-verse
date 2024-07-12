@@ -37,6 +37,8 @@ export async function getSenseType(sentence: string) {
     { text: 'output: OVER_LIMIT' },
     { text: 'input: 그 애 목소리는 시원한 바닷 바람 같았다. 참 달콤한 기분이였다.' },
     { text: 'output: OVER_LIMIT' },
+    { text: 'input: 바다 소리가 멀리서 들려와 마음을 편안하게 만드는 그런 날이었어.' },
+    { text: 'output: HEARING' },
     { text: 'input: 토마토 같이 붉어진 얼굴로 말했다. 너는 바닷 바람 같아.' },
     { text: 'output: OVER_LIMIT' },
     { text: 'input: 바보같아' },
@@ -82,7 +84,7 @@ export async function changeSentence(sentence: string, sense: SenseResult) {
         role: 'user',
         parts: [
           {
-            text: '"문장, 감각" 형태로 입력이 들어오면 문장의 의미와 역할이 달라지지 않게 다른 오감을 사용한 표현으로 변경해줘. 다른 문장과 함께 사용해야하기 때문에 구조 자체에 변형이 있어선 안돼. 변경 불가능하면  문자열 "FAIL"을 반환하고, JSON 형식으로 반환해\n\n출력 형식\n{\n  VISION,\n  SMELL,\n  HEARING,\n  TOUCH,\n  TASTE,\n}',
+            text: '"문장, 감각" 형태로 입력이 들어오면 문장의 의미와 역할이 달라지지 않게 다른 오감을 사용한 표현으로 변경해줘. 다른 문장과 함께 사용해야하기 때문에 구조 자체에 변형이 있어선 안돼. 변경 불가능하면 두세번 더 시도해 보고 정 안될때만 문자열 "FAIL"을 반환해. JSON 형식으로 반환해\n\n출력 형식\n{\n  VISION,\n  SMELL,\n  HEARING,\n  TOUCH,\n  TASTE,\n}',
           },
         ],
       },
